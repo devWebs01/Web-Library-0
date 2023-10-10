@@ -148,7 +148,7 @@
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="mb-0">{{ Auth()->user()->name }}</h6>
-                                                    <small class="text-muted">-</small>
+                                                    <small class="text-muted">{{ Auth()->user()->role }}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -157,7 +157,7 @@
                                         <div class="dropdown-divider my-1"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{ route('profile', Auth()->user()->slug) }}">
                                             <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
                                             <span class="align-middle">My Profile</span>
                                         </a>
@@ -199,8 +199,29 @@
                 <!-- Content wrapper -->
                 <div class="content-wrapper">
                     <!-- Content -->
-
                     <div class="container-xxl flex-grow-1 container-p-y">
+                        @if (session('success'))
+                            <div class="alert alert-primary alert-dismissible mb-3" role="alert">
+                                <h4 class="alert-heading d-flex align-items-center"><i
+                                        class="mdi mdi-check-circle-outline mdi-24px me-2"></i>Well done :)</h4>
+                                <hr>
+                                <p class="mb-0">{{ session('success') }}</p>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                </button>
+                            </div>
+                        @elseif ($errors->any())
+                            <div class="alert alert-danger alert-dismissible mb-3" role="alert">
+                                <h4 class="alert-heading d-flex align-items-center"><i
+                                        class="mdi mdi-close-circle mdi-24px me-2"></i>Opps :(</h4>
+
+                                <hr>
+                                @foreach ($errors->all() as $error)
+                                    <p class="mb-0">{{ $error }}</p>
+                                @endforeach
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                </button>
+                            </div>
+                        @endif
                         {{ $slot }}
                     </div>
                     <!-- / Content -->
@@ -221,11 +242,6 @@
                                         class="footer-link fw-medium">ThemeSelection</a>
                                 </div>
                                 <div class="d-none d-lg-inline-block">
-                                    <a href="https://themeselection.com/license/" class="footer-link me-3"
-                                        target="_blank">License</a>
-                                    <a href="https://themeselection.com/" target="_blank"
-                                        class="footer-link me-3">More Themes</a>
-
                                     <a href="https://demos.themeselection.com/materio-bootstrap-html-admin-template/documentation/"
                                         target="_blank" class="footer-link me-3">Documentation</a>
 
@@ -248,11 +264,6 @@
         <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
-    <div class="buy-now">
-        <a href="https://themeselection.com/item/materio-bootstrap-html-admin-template/" target="_blank"
-            class="btn btn-danger btn-buy-now">Upgrade to Pro</a>
-    </div>
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->

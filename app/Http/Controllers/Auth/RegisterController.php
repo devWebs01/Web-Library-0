@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -51,9 +52,14 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'name' => ['required','string','max:50'],
+            'email' => ['required','string','email','max:50','unique:users'],
+            'password' => ['required','string','min:8','confirmed'],
+            'identify' => ['required','numeric','digits_between:8,30','unique:users,identify'],
+            'gender'  => ['required','in:Laki-laki,Perempuan'],
+            'telp' => ['required','numeric','digits_between:11,12'],
+            'role' => ['required','in:Siswa,Guru'],
+            'birthdate' => ['required','date'],
         ]);
     }
 
@@ -69,6 +75,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'slug' => Str::slug($data['name']) . Str::random(5),
+            'identify' => $data['identify'],
+            'gender' => $data['gender'],
+            'telp' => $data['telp'],
+            'role' => $data['role'],
+            'birthdate' => $data['birthdate'],
         ]);
     }
 
@@ -76,6 +88,6 @@ class RegisterController extends Controller
     {
         $this->guard()->logout();
 
-        return back()->with('success', 'Terima kasih telah melakukan registrasi di platform kami. Mohon tunggu konfirmasi dari admin untuk dapat mengakses fitur-fitur yang tersedia');
+        return back()->with('success', 'Terima kasih atas mendaftar di situs Perpustakaan. Mohon tunggu konfirmasi dari administrator dalam waktu 24x6 jam atau kunjungi perpustakaan langsung..');
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +21,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/{slug}', [ProfileController::class, 'index'])->name('profile');
+        Route::put('/{id}/account', [ProfileController::class, 'account'])->name('profile.account');
+        Route::put('/{id}/password', [ProfileController::class, 'password'])->name('profile.password');
+    });
+});

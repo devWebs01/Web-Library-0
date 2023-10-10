@@ -3,6 +3,17 @@
     <div class="position-relative">
         <div class="authentication-wrapper authentication-basic container-p-y">
             <div class="authentication-inner py-4">
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible mb-3" role="alert">
+                        <h4 class="alert-heading d-flex align-items-center"><i
+                                class="mdi mdi-check-circle-outline mdi-24px me-2"></i>Oopps :(</h4>
+                        <hr>
+                        <p class="mb-0">{{ session('error') }}</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                        </button>
+                    </div>
+                @endif
+
                 <!-- Login -->
                 <div class="card p-2">
                     <!-- Logo -->
