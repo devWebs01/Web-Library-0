@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
@@ -46,4 +47,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [ConfirmationAccountController::class, 'index'])->name('confirmations.index');
         Route::put('/{id}/accept', [ConfirmationAccountController::class, 'accept'])->name('confirmations.accept');
     });
+
+    Route::resource('categories', CategoryController::class);
 });

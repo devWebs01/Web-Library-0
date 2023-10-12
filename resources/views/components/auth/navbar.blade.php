@@ -27,7 +27,13 @@
                     </div>
                 </a>
             </li>
-
         </ul>
+    </li>
+
+    <li class="menu-item {{ request()->is('categories') ? 'active' : '' }}">
+        <a href="/categories" class="menu-link">
+            <i class="menu-icon tf-icons mdi mdi-shape"></i>
+            <div data-i18n="categories">Kategori Buku</div>
+        </a>
     </li>
 </ul>
