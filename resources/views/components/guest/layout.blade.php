@@ -48,6 +48,7 @@
 </head>
 
 <body>
+    <x-guest.navbar></x-guest.navbar>
     {{ $slot }}
 
     <!-- Core JS -->

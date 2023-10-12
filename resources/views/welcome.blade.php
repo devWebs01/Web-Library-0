@@ -1,39 +1,4 @@
 <x-guest.layout>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light py-4">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="https://library.livecanvas.com/sections/">
-                    <img class="img-fluid" src="/assets/img/favicon/favicon.ico" alt="" width="48px"
-                        height="48px">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav_lc"
-                    aria-controls="nav_lc" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="nav_lc">
-                    <ul
-                        class="d-none d-lg-flex navbar-nav mx-auto my-3 my-lg-0 position-absolute top-50 start-50 translate-middle">
-                        <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
-                    </ul>
-                    <ul class="navbar-nav my-3 my-lg-0 d-lg-none">
-                        <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
-                        <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
-                    </ul>
-                    <div class="ms-lg-auto">
-                        @auth
-                            <a class="btn btn-outline-primary me-2" href="#">Home</a>
-                        @else
-                            <a class="btn btn-outline-primary me-2" href="/login">Login</a>
-                            <a class="btn btn-primary" href="/register">Register</a>
-                        @endauth
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
     <section class="py-2">
         <div class="container col-xxl-8 px-4 py-5">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
@@ -150,8 +115,8 @@
                 <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="card bg-light shadow-sm lc-block p-4">
                         <div class="lc-block"><img class="img-fluid"
-                                src="https://cdn.livecanvas.com/media/svg/pixeltrue/space-discovery.svg"
-                                width="512" alt="Image desc"></div>
+                                src="https://cdn.livecanvas.com/media/svg/pixeltrue/space-discovery.svg" width="512"
+                                alt="Image desc"></div>
                         <div class="lc-block mb-4">
                             <div editable="rich">
                                 <h2>The quick brown fox jumps over the lazy dog</h2>

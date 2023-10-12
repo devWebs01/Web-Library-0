@@ -14,7 +14,7 @@ class UserController extends Controller
     public function index()
     {
         return view('user.index', [
-            'users' => User::latest()->get(),
+            'users' => User::whereNotNull('email_verified_at')->latest()->get(),
         ]);
     }
     public function store(UserRequest $request)
@@ -44,6 +44,13 @@ class UserController extends Controller
         $user->update($data);
 
         return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+    }
+    public function show($slug)
+    {
+
+        return view('user.show', [
+            'user' => User::whereSlug($slug)->first()
+        ]);
     }
     public function destroy($id)
     {
