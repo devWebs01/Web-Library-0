@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->string('slug')->unique();
-            $table->bigInteger('telp')->unique();
+            $table->string('telp')->unique();
             $table->string('identify', 30)->unique();
             $table->enum('role', ['Petugas', 'Siswa', 'Guru']);
             $table->date('birthdate');
