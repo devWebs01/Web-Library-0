@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class BookFactory extends Factory
 {
@@ -14,9 +15,13 @@ class BookFactory extends Factory
      */
     public function definition()
     {
+        $imagePath = 'assets/img/Example-Cover.png';
+        $storagePath = 'images/' . $imagePath;
+        Storage::disk('public')->put($storagePath, file_get_contents(public_path($imagePath)));
+
         return [
             'title' => $this->faker->sentence(),
-            'image' => $this->faker->imageUrl(),
+            'image' => $storagePath,
             'category_id' => Category::all()->random(),
             'isbn' => $this->faker->isbn13,
             'author' => $this->faker->name,

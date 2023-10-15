@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
@@ -48,5 +49,18 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{id}/accept', [ConfirmationAccountController::class, 'accept'])->name('confirmations.accept');
     });
 
-    Route::resource('categories', CategoryController::class);
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+        Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+        Route::put('/{id}', [CategoryController::class, 'update'])->name('categories.update');
+        Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    });
+    Route::prefix('books')->group(function () {
+        Route::get('/', [BookController::class, 'index'])->name('books.index');
+        Route::post('/', [BookController::class, 'store'])->name('books.store');
+        Route::get('/{id}/show', [BookController::class, 'show'])->name('books.show');
+        Route::put('/{id}', [BookController::class, 'update'])->name('books.update');
+        Route::delete('/{id}', [BookController::class, 'destroy'])->name('books.destroy');
+    });
+
 });

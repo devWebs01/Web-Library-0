@@ -3,84 +3,63 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Http\Requests\StoreBookRequest;
-use App\Http\Requests\UpdateBookRequest;
+use App\Http\Requests\BookRequest;
+use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        return view('book.index', [
+            'books' => Book::latest()->get(),
+            'categories' => Category::get()
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(BookRequest $request)
     {
-        //
+        $validate = $request->validated();
+        $request->file('image')->getClientOriginalName();
+        $validate['image'] = $request->file('image')->store('public/images');
+
+        Book::create($validate);
+
+        return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreBookRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreBookRequest $request)
+    public function show($id)
     {
-        //
+        return view('book.show', [
+            'book' => Book::findOrFail($id),
+            'categories' => Category::get()
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Book $book)
+    public function update(BookRequest $request, $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $validate = $request->validated();
+
+        if ($request->hasFile('image')) {
+
+            Storage::delete($book->image);
+            $request->file('image')->getClientOriginalName();
+            $validate['image'] = $request->file('image')->store('public/images');
+        }
+
+        $book->update($validate);
+
+        return back()->with('success', 'Proses perubahan data telah berhasil dilakukan.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Book $book)
+    public function destroy($id)
     {
-        //
-    }
+        $book = Book::findOrfail($id);
+        $book->delete();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBookRequest  $request
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateBookRequest $request, Book $book)
-    {
-        //
-    }
+        Storage::delete($book->image);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Book  $book
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Book $book)
-    {
-        //
+        return back()->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
     }
 }
