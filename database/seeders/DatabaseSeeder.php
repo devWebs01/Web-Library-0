@@ -2,16 +2,20 @@
 
 namespace Database\Seeders;
 
+use App\Models\Book;
+use App\Models\Category;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
+        Category::factory(10)->create();
+        Book::factory(10)->create();
 
-
-        \App\Models\User::create([
+        User::create([
             'name' => 'testing',
             'email' => 'testing@testing.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -24,6 +28,4 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
     }
-
-
 }
