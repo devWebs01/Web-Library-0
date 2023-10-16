@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
@@ -55,6 +56,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/{id}', [CategoryController::class, 'update'])->name('categories.update');
         Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     });
+
     Route::prefix('books')->group(function () {
         Route::get('/', [BookController::class, 'index'])->name('books.index');
         Route::post('/', [BookController::class, 'store'])->name('books.store');
@@ -63,4 +65,13 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [BookController::class, 'destroy'])->name('books.destroy');
     });
 
+    Route::prefix('catalog-books')->group(function () {
+        Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
+        Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
+        Route::get('/{id}/create', [CatalogController::class, 'create'])->name('catalog.create');
+        Route::get('/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
+
+        Route::put('/{id}', [CatalogController::class, 'update'])->name('catalog.update');
+        Route::delete('/{id}', [CatalogController::class, 'destroy'])->name('catalog.destroy');
+    });
 });

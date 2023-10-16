@@ -11,18 +11,20 @@
             <div class="collapse navbar-collapse" id="nav_lc">
                 <ul
                     class="d-none d-lg-flex navbar-nav mx-auto my-3 my-lg-0 position-absolute top-50 start-50 translate-middle">
-                    <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="{{ route('catalog.index') }}">Katalog Buku</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
                 </ul>
                 <ul class="navbar-nav my-3 my-lg-0 d-lg-none">
-                    <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item me-4"><a class="nav-link" href="{{ route('catalog.index') }}">Katalog Buku</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
                 </ul>
                 <div class="ms-lg-auto">
                     @auth
-                        <a class="btn btn-outline-primary me-2" href="/home">Home</a>
+                        <a class="btn btn-outline-primary me-2" href="/home">Dashboard</a>
                     @else
                         <a class="btn btn-outline-primary me-2" href="/login">Login</a>
                         <a class="btn btn-primary" href="/register">Register</a>

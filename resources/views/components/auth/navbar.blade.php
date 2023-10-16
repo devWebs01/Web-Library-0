@@ -36,10 +36,12 @@
             <div data-i18n="categories">Kategori Buku</div>
         </a>
     </li>
+
     <li class="menu-item {{ request()->is('books') ? 'active' : '' }}">
         <a href="/books" class="menu-link">
             <i class="menu-icon tf-icons mdi mdi-book"></i>
             <div data-i18n="books">Buku</div>
         </a>
     </li>
+    
 </ul>
