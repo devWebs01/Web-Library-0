@@ -9,6 +9,10 @@
             <h5>Harap melakukan konfirmasi kepada petugas perpustakaan dalam waktu 24 jam <span
                     class="text-primary">({{ $countdown }})</span>, dengan
                 menunjukkan kode yang telah diberikan.</h5>
+            <a href="{{ route('catalog.history', auth()->user()->slug) }}" class="mb-3">
+                Riwayat Peminjaman
+                <i class="mdi mdi-arrow-right lh-1 scaleX-n1-rtl"></i>
+            </a>
         </div>
         <div class="divider">
             <div class="divider-text fw-border fs-5">Kamu Mungkin Juga Suka</div>

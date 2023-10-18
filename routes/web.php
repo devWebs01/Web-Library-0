@@ -72,5 +72,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
         Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');
 
+        Route::get('/history', [CatalogController::class, 'history'])->name('catalog.history');
     });
 });

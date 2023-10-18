@@ -54,4 +54,27 @@ class CatalogController extends Controller
             'countdown' => $countdown,
         ]);
     }
+
+    public function history()
+    {
+        $waiting = Transaction::where('user_id', Auth()->user()->id)
+            ->where('status', 'Menunggu')
+            ->get();
+        $walking = Transaction::where('user_id', Auth()->user()->id)
+            ->where('status', 'Berjalan')
+            ->get();
+        $penalty = Transaction::where('user_id', Auth()->user()->id)
+            ->where('status', 'Berjalan')
+            ->get();
+        $finished = Transaction::where('user_id', Auth()->user()->id)
+            ->where('status', 'Berjalan')
+            ->get();
+
+        return view('history.index', [
+            'waiting' => $waiting,
+            'walking' => $walking,
+            'penalty' => $penalty,
+            'finished' => $finished,
+        ]);
+    }
 }
