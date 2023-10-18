@@ -126,11 +126,10 @@
                                 <select class="form-select form-control @error('role') is-invalid @enderror"
                                     name="role" id="role">
                                     <option selected disabled>Pilih satu</option>
-                                    <option {{ $user->role == 'Siswa' ? 'selected' : '' }} value="Siswa">Siswa
+                                    <option {{ $user->role == 'Anggota' ? 'selected' : '' }} value="Anggota">Anggota
                                     </option>
                                     <option {{ $user->role == 'Petugas' ? 'selected' : '' }} value="Petugas">Petugas
                                     </option>
-                                    <option {{ $user->role == 'Guru' ? 'selected' : '' }} value="Guru">Guru</option>
                                 </select>
                                 <label for="role">Status</label>
                                 @error('role')

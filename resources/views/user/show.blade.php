@@ -69,13 +69,13 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating form-floating-outline mb-3">
-                        <select class="form-select form-control
+                        <select class="form-select form-control"
                                 name="role"
                             id="role" disabled>
                             <option disabled>Pilih satu</option>
-                            <option value="Siswa" {{ $user->role == 'Siswa' ? '' : '' }}>Siswa
+                            <option value="Anggota" {{ $user->role == 'Anggota' ? '' : '' }}>Anggota
                             </option>
-                            <option value="Guru" {{ $user->role == 'Guru' ? '' : '' }}>Guru</option>
+                            <option value="Petugas" {{ $user->role == 'Petugas' ? '' : '' }}>Petugas</option>
                         </select>
                         <label for="role">Status</label>
                     </div>

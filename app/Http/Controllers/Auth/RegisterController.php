@@ -58,7 +58,7 @@ class RegisterController extends Controller
             'identify' => ['required','numeric','digits_between:8,30','unique:users,identify'],
             'gender'  => ['required','in:Laki-laki,Perempuan'],
             'telp' => ['required','numeric','digits_between:11,12'],
-            'role' => ['required','in:Siswa,Guru'],
+            'role' => ['required','in:Anggota'],
             'birthdate' => ['required','date'],
         ]);
     }

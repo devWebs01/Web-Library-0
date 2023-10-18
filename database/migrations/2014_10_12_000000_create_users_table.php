@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('slug')->unique();
             $table->string('telp')->unique();
             $table->string('identify', 30)->unique();
-            $table->enum('role', ['Petugas', 'Siswa', 'Guru']);
+            $table->enum('role', ['Petugas', 'Anggota', 'Kepala']);
             $table->date('birthdate');
             $table->enum('gender', ['Laki-laki', 'Perempuan']);
             $table->timestamps();

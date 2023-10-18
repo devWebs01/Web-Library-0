@@ -31,6 +31,7 @@
                             action="{{ route('profile.account', $user->id) }}">
                             @csrf
                             @method('PUT')
+                            <input type="hidden" name="role" value="Anggota">
                             <div class="row">
                                 <div class="col-md">
                                     <div class="form-floating form-floating-outline mb-3">
@@ -116,23 +117,6 @@
                                             placeholder="Enter your birthdate" autofocus />
                                         <label for="birthdate">Tanggal Lahir</label>
                                         @error('birthdate')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md">
-                                    <div class="form-floating form-floating-outline mb-3">
-                                        <select class="form-select form-control @error('role') is-invalid @enderror"
-                                            name="role" id="role" disabled>
-                                            <option disabled>Pilih satu</option>
-                                            <option value="Siswa" {{ $user->role == 'Siswa' ? '' : '' }}>Siswa
-                                            </option>
-                                            <option value="Guru" {{ $user->role == 'Guru' ? '' : '' }}>Guru</option>
-                                        </select>
-                                        <label for="role">Status</label>
-                                        @error('role')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

@@ -29,7 +29,7 @@ class UserRequest extends FormRequest
             'identify' => 'required|numeric|digits_between:8,30|unique:users,identify,' . $this->id,
             'gender'  => 'required|in:Laki-laki,Perempuan',
             'telp' => 'required|numeric|digits_between:11,12',
-            'role' => 'required|in:Siswa,Petugas,Guru,',
+            'role' => 'required|in:Petugas,Anggota,Kepala',
             'birthdate' => 'required|date',
         ];
     }

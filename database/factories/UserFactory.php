@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'slug' => $this->faker->slug(),
             'telp' => $this->faker->numerify(),
-            'role' => $this->faker->randomElement(['Petugas', 'Siswa', 'Guru']),
+            'role' => $this->faker->randomElement(['Petugas', 'Anggota', 'Kepala']),
             'birthdate' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
             'identify' => $this->faker->ean13,

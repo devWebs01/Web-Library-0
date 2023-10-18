@@ -111,9 +111,8 @@
                                 <select class="form-select form-control @error('role') is-invalid @enderror"
                                     name="role" id="role">
                                     <option selected disabled>Pilih satu</option>
-                                    <option value="Siswa">Siswa</option>
+                                    <option value="Anggota">Anggota</option>
                                     <option value="Petugas">Petugas</option>
-                                    <option value="Guru">Guru</option>
                                 </select>
                                 <label for="role">Status</label>
                                 @error('role')
