@@ -64,10 +64,10 @@ class CatalogController extends Controller
             ->where('status', 'Berjalan')
             ->get();
         $penalty = Transaction::where('user_id', Auth()->user()->id)
-            ->where('status', 'Berjalan')
+            ->where('status', 'Terlambat')
             ->get();
         $finished = Transaction::where('user_id', Auth()->user()->id)
-            ->where('status', 'Berjalan')
+            ->where('status', 'Selesai')
             ->get();
 
         return view('history.index', [

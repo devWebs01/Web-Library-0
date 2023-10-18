@@ -69,13 +69,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($waiting as $no => $history)
+                                @foreach ($waiting as $no => $wait)
                                     <tr>
                                         <td>{{ ++$no }}.</td>
-                                        <td><span class="badge bg-primary">{{ $history->status }}</span></td>
-                                        <td>{{ $history->borrow_date ?? '-' }}</td>
-                                        <td>{{ $history->return_date ?? '-' }}</td>
-                                        <td>{{ $history->book->title }}</td>
+                                        <td><span class="badge bg-warning">{{ $wait->status }}</span></td>
+                                        <td>{{ $wait->borrow_date ?? '-' }}</td>
+                                        <td>{{ $wait->return_date ?? '-' }}</td>
+                                        <td>{{ $wait->book->title }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -95,13 +95,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($walking as $no => $history)
+                                @foreach ($walking as $no => $walk)
                                     <tr>
                                         <td>{{ ++$no }}.</td>
-                                        <td><span class="badge bg-primary">{{ $history->status }}</span></td>
-                                        <td>{{ $history->borrow_date ?? '-' }}</td>
-                                        <td>{{ $history->return_date ?? '-' }}</td>
-                                        <td>{{ $history->book->title }}</td>
+                                        <td><span class="badge bg-primary">{{ $walk->status }}</span></td>
+                                        <td>{{ $walk->borrow_date ?? '-' }}</td>
+                                        <td>{{ $walk->return_date ?? '-' }}</td>
+                                        <td>{{ $walk->book->title }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -121,13 +121,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($penalty as $no => $history)
+                                @foreach ($penalty as $no => $penal)
                                     <tr>
                                         <td>{{ ++$no }}.</td>
-                                        <td><span class="badge bg-primary">{{ $history->status }}</span></td>
-                                        <td>{{ $history->borrow_date ?? '-' }}</td>
-                                        <td>{{ $history->return_date ?? '-' }}</td>
-                                        <td>{{ $history->book->title }}</td>
+                                        <td><span class="badge bg-danger">{{ $penal->status }}</span></td>
+                                        <td>{{ $penal->borrow_date ?? '-' }}</td>
+                                        <td>{{ $penal->return_date ?? '-' }}</td>
+                                        <td>{{ $penal->book->title }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -147,13 +147,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($finished as $no => $history)
+                                @foreach ($finished as $no => $finish)
                                     <tr>
                                         <td>{{ ++$no }}.</td>
-                                        <td><span class="badge bg-primary">{{ $history->status }}</span></td>
-                                        <td>{{ $history->borrow_date ?? '-' }}</td>
-                                        <td>{{ $history->return_date ?? '-' }}</td>
-                                        <td>{{ $history->book->title }}</td>
+                                        <td><span class="badge bg-success">{{ $finish->status }}</span></td>
+                                        <td>{{ $finish->borrow_date ?? '-' }}</td>
+                                        <td>{{ $finish->return_date ?? '-' }}</td>
+                                        <td>{{ $finish->book->title }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

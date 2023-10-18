@@ -8,12 +8,22 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
-    public function store(TransactionRequest $request)
+    public function index()
     {
-        $validate = $request->validated();
+        $waiting = Transaction::where('status', 'Menunggu')
+            ->get();
+        $walking = Transaction::where('status', 'Berjalan')
+            ->get();
+        $penalty = Transaction::where('status', 'Terlambat')
+            ->get();
+        $finished = Transaction::where('status', 'Selesai')
+            ->get();
 
-        $transaction = Transaction::create($validate);
-
-        return back()
+        return view('transaction.index', [
+            'waiting' => $waiting,
+            'walking' => $walking,
+            'penalty' => $penalty,
+            'finished' => $finished,
+        ]);
     }
 }

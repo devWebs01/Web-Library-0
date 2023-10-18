@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -68,10 +69,16 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('catalog-books')->group(function () {
         Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
         Route::get('/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
-
         Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
         Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');
-
         Route::get('/history', [CatalogController::class, 'history'])->name('catalog.history');
+    });
+
+    Route::prefix('transactions')->group(function () {
+        Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
+        Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
+        Route::get('/{id}/show', [TransactionController::class, 'show'])->name('transactions.show');
+        Route::put('/{id}', [TransactionController::class, 'update'])->name('transactions.update');
+        Route::delete('/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
     });
 });
