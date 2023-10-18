@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Book;
 use App\Models\Category;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,7 @@ class DatabaseSeeder extends Seeder
         User::factory(10)->create();
         Category::factory(10)->create();
         Book::factory(10)->create();
+        Transaction::factory(10)->create();
 
         User::create([
             'name' => 'testing',
