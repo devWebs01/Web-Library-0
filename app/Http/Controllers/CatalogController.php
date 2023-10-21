@@ -31,10 +31,14 @@ class CatalogController extends Controller
 
     public function store(TransactionRequest $request)
     {
+        $validate = $request->validated();
+
         $book = Book::findOrFail($request->book_id);
+        $book->book_count -= 1;
+        $book->save();
+
         $user = User::findOrFail($request->user_id);
 
-        $validate = $request->validated();
         $validate['code'] = $user->slug . '-' . Str::random(10);
 
         $transaction = Transaction::create($validate);

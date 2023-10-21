@@ -80,5 +80,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/show', [TransactionController::class, 'show'])->name('transactions.show');
         Route::put('/{id}', [TransactionController::class, 'update'])->name('transactions.update');
         Route::delete('/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
+
+        Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
     });
 });
