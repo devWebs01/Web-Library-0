@@ -21,6 +21,8 @@
                     <td>
                         <div class="d-flex gap-2">
                             @include('transaction.show')
+                            <a class="btn btn-danger btn-sm"
+                                href="{{ route('transactions.penalty', $item->id) }}">Bayar</a>
                         </div>
                     </td>
                 </tr>

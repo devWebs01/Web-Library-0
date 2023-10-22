@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Transaction extends Model
 {
@@ -42,5 +43,15 @@ class Transaction extends Model
     public function book()
     {
         return $this->belongsTo(Book::class);
+    }
+
+    /**
+     * Get all of the penalties for the Transaction
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function penalties(): HasMany
+    {
+        return $this->hasMany(Penalty::class);
     }
 }

@@ -87,7 +87,10 @@ class TransactionController extends Controller
         return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
     }
 
-    public function payment()
+    public function penalty($id)
     {
+        return view('penalty.index', [
+            'transaction' => Transaction::findOrfail($id)
+        ]);
     }
 }

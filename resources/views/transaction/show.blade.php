@@ -1,5 +1,5 @@
 <!-- Modal trigger button -->
-<button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
     data-bs-target="#{{ $item->user->slug . '-' . $item->id }}">
     Detail
 </button>

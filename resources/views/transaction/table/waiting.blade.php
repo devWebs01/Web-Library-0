@@ -27,7 +27,7 @@
                                 <input type="hidden" name="status" value="Berjalan">
                                 <input type="hidden" name="borrow_date" value="{{ $borrow_date }}">
                                 <input type="hidden" name="return_date" value="{{ $return_date }}">
-                                <button type="submit" class="btn btn-primary btn-sm">Konfirmasi</button>
+                                <button type="submit" class="btn btn-warning btn-sm">Konfirmasi</button>
                             </form>
                         </div>
                     </td>

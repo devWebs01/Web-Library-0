@@ -15,7 +15,7 @@
                 <tr>
                     <td>{{ ++$no }}.</td>
                     <td>{{ $item->user->name ?? '-' }}</td>
-                    <td><span class="badge bg-success">{{ $item->status }}</span></td>
+                    <td><span class="badge bg-primary">{{ $item->status }}</span></td>
                     <td>{{ $item->borrow_date ?? '-' }}</td>
                     <td>{{ $item->return_date ?? '-' }}</td>
                     <td>

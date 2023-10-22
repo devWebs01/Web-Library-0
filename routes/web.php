@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PenaltyController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +84,11 @@ Route::middleware(['auth'])->group(function () {
 
         Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
         Route::put('/{id}/finished', [TransactionController::class, 'finished'])->name('transactions.finished');
-        Route::put('/{id}/payment', [TransactionController::class, 'payment'])->name('transactions.payment');
+        Route::put('/{id}/penalty', [TransactionController::class, 'penalty'])->name('transactions.penalty');
+    });
+
+    Route::prefix('penalties')->group(function () {
+        Route::get('/', [PenaltyController::class, 'index'])->name('penalties.index');
+        Route::post('/', [PenaltyController::class, 'store'])->name('penalties.store');
     });
 });
