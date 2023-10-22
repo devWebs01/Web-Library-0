@@ -21,6 +21,11 @@
                     <td>
                         <div class="d-flex gap-2">
                             @include('transaction.show')
+                            <form action="{{ route('transactions.finished', $item->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-success btn-sm">Selesai</button>
+                            </form>
                         </div>
                     </td>
                 </tr>

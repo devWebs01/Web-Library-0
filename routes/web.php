@@ -82,5 +82,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 
         Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
+        Route::put('/{id}/finished', [TransactionController::class, 'finished'])->name('transactions.finished');
+        Route::put('/{id}/payment', [TransactionController::class, 'payment'])->name('transactions.payment');
     });
 });

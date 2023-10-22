@@ -74,11 +74,19 @@ class TransactionController extends Controller
 
         $transaction->update($validate);
 
-        return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+        return back()->with('success', 'Proses penambahan data peminjaman dan pengembalian buku berhasil telah berhasil dilakukan.');
     }
-    public function finished()
+    public function finished($id)
     {
+        $transaction = Transaction::findOrfail($id);
+        $transaction->update([
+            'status' => 'Selesai',
+            'return_date' => Carbon::now()->format('Y-m-d'),
+        ]);
+
+        return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
     }
+
     public function payment()
     {
     }
