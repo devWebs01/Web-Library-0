@@ -79,18 +79,16 @@ class TransactionController extends Controller
     public function finished($id)
     {
         $transaction = Transaction::findOrfail($id);
+
         $transaction->update([
             'status' => 'Selesai',
             'return_date' => Carbon::now()->format('Y-m-d'),
         ]);
 
-        return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
-    }
+        $book = Book::findOrfail($transaction->book->id);
+        $book->book_count++;
+        $book->save();
 
-    public function penalty($id)
-    {
-        return view('penalty.index', [
-            'transaction' => Transaction::findOrfail($id)
-        ]);
+        return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
     }
 }

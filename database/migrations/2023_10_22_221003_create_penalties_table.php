@@ -18,7 +18,7 @@ class CreatePenaltiesTable extends Migration
             $table->foreignId('transaction_id')->constrained()->onDelete('cascade');
             $table->string('amount');
             $table->string('lates_day');
-            $table->date('payment_date');
+            $table->dateTime('payment_date');
             $table->timestamps();
         });
     }

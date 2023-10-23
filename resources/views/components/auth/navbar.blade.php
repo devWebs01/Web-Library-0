@@ -47,7 +47,14 @@
     <li class="menu-item {{ request()->is('transactions') ? 'active' : '' }}">
         <a href="/transactions" class="menu-link">
             <i class="menu-icon tf-icons mdi mdi-sync-circle"></i>
-            <div data-i18n="transactions">Transaksi Perpustakaan</div>
+        <div data-i18n="transactions">Transaksi Perpustakaan</div>
+        </a>
+    </li>
+
+    <li class="menu-item {{ request()->is('penalties') ? 'active' : '' }}">
+        <a href="/penalties" class="menu-link">
+            <i class="menu-icon tf-icons mdi mdi-cash"></i>
+            <div data-i18n="penalties">Denda</div>
         </a>
     </li>
 

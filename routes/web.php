@@ -84,11 +84,11 @@ Route::middleware(['auth'])->group(function () {
 
         Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
         Route::put('/{id}/finished', [TransactionController::class, 'finished'])->name('transactions.finished');
-        Route::put('/{id}/penalty', [TransactionController::class, 'penalty'])->name('transactions.penalty');
     });
 
     Route::prefix('penalties')->group(function () {
         Route::get('/', [PenaltyController::class, 'index'])->name('penalties.index');
+        Route::get('/{id}/penalty', [PenaltyController::class, 'show'])->name('penalties.show');
         Route::post('/', [PenaltyController::class, 'store'])->name('penalties.store');
     });
 });
