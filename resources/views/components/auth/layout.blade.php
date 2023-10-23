@@ -54,9 +54,9 @@
         <div class="layout-container">
             <!-- Menu -->
 
-            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-primary">
                 <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
+                    <a href="/home" class="app-brand-link">
                         <span class="app-brand-logo demo me-1">
                             <span style="color: var(--bs-primary)">
                                 <svg width="30" height="24" viewBox="0 0 250 196" fill="none"
@@ -116,16 +116,8 @@
                         </a>
                     </div>
 
-                    <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="mdi mdi-magnify mdi-24px lh-0"></i>
-                                <input type="text" class="form-control border-0 shadow-none bg-body"
-                                    placeholder="Search..." aria-label="Search..." />
-                            </div>
-                        </div>
-                        <!-- /Search -->
+                    <div class="navbar-nav-right d-flex align-items-center bg-white rounded-3 shadow px-1 py-2"
+                        id="navbar-collapse">
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
                             <!-- User -->

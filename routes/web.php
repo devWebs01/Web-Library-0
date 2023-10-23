@@ -29,6 +29,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/catalog-books', [CatalogController::class, 'index'])->name('catalog.index');
+
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -68,7 +71,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('catalog-books')->group(function () {
-        Route::get('/', [CatalogController::class, 'index'])->name('catalog.index');
         Route::get('/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
         Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
         Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');

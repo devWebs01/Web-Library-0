@@ -38,10 +38,10 @@
                         <div class="card-body p-3 pt-2">
                             <div class="align-items-center mb-3 ">
                                 <span
-                                    class="badge rounded-pill bg-label-primary text-wrap">{{ Str::limit($book->category->name, 30, '...') }}</span>
+                                    class="badge rounded-pill bg-label-primary text-truncate">{{ $book->category->name }}</span>
                             </div>
                             <a href="{{ route('catalog.show', $book->id) }}" class="h5">{{ $book->title }}</a>
-                            <p class="mt-2">{{ Str::limit($book->synopsis, 50, '...') }}
+                            <p class="mt-2 text-truncate">{{ $book->synopsis }}
                             </p>
                         </div>
                         <div class="card-footer">
