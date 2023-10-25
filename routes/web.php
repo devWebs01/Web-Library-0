@@ -7,8 +7,10 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenaltyController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -85,6 +87,7 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
 
         Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
+        Route::put('/{id}/reject', [TransactionController::class, 'reject'])->name('transactions.reject');
         Route::put('/{id}/finished', [TransactionController::class, 'finished'])->name('transactions.finished');
     });
 
@@ -93,4 +96,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/penalty', [PenaltyController::class, 'show'])->name('penalties.show');
         Route::post('/', [PenaltyController::class, 'store'])->name('penalties.store');
     });
+
+    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
 });

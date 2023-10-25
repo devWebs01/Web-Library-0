@@ -26,7 +26,8 @@
     </section>
     <section class="bg-light py-4" id="discover">
         <div class="container py-lg-7">
-            <h1 class="fw-bold text-center">Sistem informasi dirancang dengan <br> fitur menarik</h1>
+            <h1 class="fw-bold text-center text-primary">Sistem informasi dirancang dengan <br> fitur menarik
+            </h1>
             <div class="row mt-4 text-center">
                 <div class="col-md-4">
                     <div class="lc-block mb-6 mb-md-0">
@@ -81,7 +82,7 @@
                 <div class="col-lg-5 offset-lg-1">
                     <div class="lc-block mb-5">
                         <div editable="rich">
-                            <h2>Memudahkan kamu dalam mendapatkan buku yang dicari</h2>
+                            <h2 class="text-primary">Memudahkan kamu dalam mendapatkan buku yang dicari</h2>
                             <p class="lead">Perpustakaan telah memiliki koleksi buku yang beragam dan lengkap,
                                 mencakup berbagai genre dan topik yang akan memenuhi berbagai minat pembaca. Dari fiksi
                                 hingga nonfiksi, buku-buku kami menawarkan pengetahuan, hiburan, dan inspirasi bagi
@@ -99,7 +100,7 @@
             <div class="lc-block col-xl-8">
                 <h3 editable="inline" class="fw-bold fst-italic">Jadilah anak muda yang Produktif, sehingga nanti bisa
                     menjadi pribadi yang Profesional, yaitu dengan tidak melupakan dua hal IMAN dan TAKWA.</h3>
-                <p class="fst-italic">BJ. Habibie</p>
+                <p class="fst-italic text-primary">BJ. Habibie</p>
             </div><!-- /lc-block -->
         </div>
     </div>
@@ -109,7 +110,7 @@
         <div class="container py-md-6">
             <div class="row align-items-center">
                 <div class="col-lg-5 order-lg-2">
-                    <div class="lc-block mb-4">
+                    <div class="lc-block my-4">
                         <div editable="rich">
                             <h3 class="text-primary">Sistem Informasi Perpustakaan</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a lacus est. Etiam
