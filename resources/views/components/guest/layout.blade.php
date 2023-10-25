@@ -50,6 +50,39 @@
 
 <body class="bg-white">
     <x-guest.navbar></x-guest.navbar>
+    <div class="container-fluid mx-5">
+        @if (session('success'))
+            <div class="alert alert-primary alert-dismissible mb-3" role="alert">
+                <h4 class="alert-heading d-flex align-items-center"><i
+                        class="mdi mdi-check-circle-outline mdi-24px me-2"></i>Well done :)</h4>
+                <hr>
+                <p class="mb-0">{{ session('success') }}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        @elseif ($errors->any())
+            <div class="alert alert-danger alert-dismissible mb-3" role="alert">
+                <h4 class="alert-heading d-flex align-items-center"><i
+                        class="mdi mdi-close-circle mdi-24px me-2"></i>Opps :(</h4>
+
+                <hr>
+                @foreach ($errors->all() as $error)
+                    <p class="mb-0">{{ $error }}</p>
+                @endforeach
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        @elseif (session('warning'))
+            <div class="alert alert-danger alert-dismissible mb-3" role="alert">
+                <h4 class="alert-heading d-flex align-items-center"><i
+                        class="mdi mdi-close-circle mdi-24px me-2"></i>Opps :(</h4>
+                <hr>
+                <p class="mb-0">{{ session('warning') }}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+        @endif
+    </div>
     {{ $slot }}
 
     <!-- Core JS -->

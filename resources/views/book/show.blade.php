@@ -1,6 +1,10 @@
 <x-auth.layout>
     <x-slot name="title">Book {{ $book->title }}</x-slot>
     <div class="card">
+        <div class="card-header">
+            <h5 class="mb-0">Detail Buku</h5>
+            <p class="mb-0">{{ $book->title }}</p>
+        </div>
         <div class="card shadow-none">
             <div class="row g-3">
                 <div class="col-md">

@@ -33,17 +33,29 @@ class CatalogController extends Controller
     {
         $validate = $request->validated();
 
-        $book = Book::findOrFail($request->book_id);
-        $book->book_count -= 1;
-        $book->save();
+        $transaction = Transaction::where('user_id', $request->user_id)
+            ->where('status', 'Berjalan')
+            ->where('status', 'Terlambat')
+            ->orWhere('status', 'Berjalan')
+            ->orWhere('status', 'Terlambat')
+            ->count();
 
-        $user = User::findOrFail($request->user_id);
+        if ($transaction >= 3) {
+            return back()->with('warning', 'Peminjaman melebihi batas yang telah ditentukan 😀');
+        } else {
 
-        $validate['code'] = $user->slug . '-' . Str::random(10);
+            $book = Book::findOrFail($request->book_id);
+            $book->book_count -= 1;
+            $book->save();
 
-        $transaction = Transaction::create($validate);
+            $user = User::findOrFail($request->user_id);
 
-        return redirect()->route('catalog.process', $transaction->id);
+            $validate['code'] = $user->slug . '-' . Str::random(10);
+
+            $transaction = Transaction::create($validate);
+
+            return redirect()->route('catalog.process', $transaction->id);
+        }
     }
 
     public function process($id)
@@ -73,12 +85,16 @@ class CatalogController extends Controller
         $finished = Transaction::where('user_id', Auth()->user()->id)
             ->where('status', 'Selesai')
             ->get();
+        $rejects = Transaction::where('user_id', Auth()->user()->id)
+            ->where('status', 'Tolak')
+            ->get();
 
         return view('history.index', [
             'waiting' => $waiting,
             'walking' => $walking,
             'penalty' => $penalty,
             'finished' => $finished,
+            'rejects' => $rejects
         ]);
     }
 }

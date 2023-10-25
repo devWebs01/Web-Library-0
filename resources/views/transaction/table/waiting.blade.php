@@ -20,15 +20,21 @@
                     <td>{{ $item->return_date ?? '-' }}</td>
                     <td>
                         <div class="d-flex gap-2">
-                            @include('transaction.show')
                             <form action="{{ route('transactions.confirmation', $item->id) }}" method="post">
                                 @csrf
                                 @method('PUT')
                                 <input type="hidden" name="status" value="Berjalan">
                                 <input type="hidden" name="borrow_date" value="{{ $borrow_date }}">
                                 <input type="hidden" name="return_date" value="{{ $return_date }}">
-                                <button type="submit" class="btn btn-warning btn-sm">Konfirmasi</button>
+                                <button type="submit" class="btn btn-success btn-sm">Konfirmasi</button>
                             </form>
+                            <form action="{{ Route('transactions.reject', $item->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-danger btn-sm">Tolak</button>
+                            </form>
+                            @include('transaction.show')
+
                         </div>
                     </td>
                 </tr>

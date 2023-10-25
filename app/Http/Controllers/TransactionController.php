@@ -49,17 +49,28 @@ class TransactionController extends Controller
     {
         $validate = $request->validated();
 
-        $book = Book::find($request->book_id);
-        $book->book_count -= 1;
-        $book->save();
+        $transaction = Transaction::where('user_id', $request->user_id)
+            ->where('status', 'Berjalan')
+            ->where('status', 'Terlambat')
+            ->orWhere('status', 'Berjalan')
+            ->orWhere('status', 'Terlambat')
+            ->count();
 
-        $user = User::findOrFail($request->user_id);
+        if ($transaction >= 3) {
+            return back()->with('warning', 'Peminjaman melebihi batas yang telah ditentukan 😀');
+        } else {
+            $book = Book::find($request->book_id);
+            $book->book_count -= 1;
+            $book->save();
 
-        $validate['code'] = $user->slug . '-' . Str::random(10);
+            $user = User::findOrFail($request->user_id);
 
-        Transaction::create($validate);
+            $validate['code'] = $user->slug . '-' . Str::random(10);
 
-        return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+            Transaction::create($validate);
+
+            return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+        }
     }
 
     public function confirmation(Request $request, $id)
@@ -90,5 +101,22 @@ class TransactionController extends Controller
         $book->save();
 
         return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
+    }
+
+    public function reject($id)
+    {
+        $transaction = Transaction::findOrfail($id);
+
+        $transaction->update([
+            'status' => 'Tolak',
+            'borrow_date' => null,
+            'return_date' => null,
+        ]);
+
+        $book = Book::findOrfail($transaction->book->id);
+        $book->book_count++;
+        $book->save();
+
+        return back()->with('success', 'Proses peminjaman dan pengembalian buku berhasil di tolak.');
     }
 }

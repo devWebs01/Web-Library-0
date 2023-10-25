@@ -1,6 +1,6 @@
 <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light py-4">
-        <div class="container-fluid border border-primary rounded-pill">
+        <div class="container-fluid">
             <a class="navbar-brand" href="https://library.livecanvas.com/sections/">
                 <img class="img-fluid" src="/assets/img/favicon/favicon.ico" alt="" width="48px" height="48px">
             </a>
@@ -25,6 +25,7 @@
                         @if (auth()->user()->role == 'Anggota')
                             <a class="btn btn-outline-primary me-2" href="{{ route('catalog.history') }}">Riwayat</a>
                         @else
+                            <a class="btn btn-outline-primary me-2" href="{{ route('catalog.history') }}">Riwayat</a>
                             <a class="btn btn-outline-primary me-2" href="/home">Dashboard</a>
                         @endif
                     @else

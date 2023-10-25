@@ -1,7 +1,7 @@
 <x-guest.layout>
     <x-slot name="title">History Catalog Book</x-slot>
     @include('layouts.table')
-    <div class="card mx-5 shadow-none">
+    <div class="card m-5 p-4 mt-1 shadow-none">
         <h5 class="mb-0">Riwayat Peminjaman Buku</h5>
         <p class="mb-3">Berikut data riwayat dari peminjaman buku {{ auth()->user()->name }}</p>
         <div class="card-header">
@@ -48,6 +48,17 @@
                             @if ($finished->count() > 0)
                                 <span
                                     class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger ms-1">{{ $finished->count() }}</span>
+                            @endif
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#navs-justified-rejects" aria-controls="navs-justified-rejects"
+                            aria-selected="false"><i class="tf-icons mdi mdi-tag-check mdi-20px me-1"></i>
+                            Tolak
+                            @if ($rejects->count() > 0)
+                                <span
+                                    class="badge rounded-pill badge-center h-px-20 w-px-20 bg-label-danger ms-1">{{ $rejects->count() }}</span>
                             @endif
                         </button>
                     </li>
@@ -151,6 +162,32 @@
                                     <tr>
                                         <td>{{ ++$no }}.</td>
                                         <td><span class="badge bg-success">{{ $finish->status }}</span></td>
+                                        <td>{{ $finish->borrow_date ?? '-' }}</td>
+                                        <td>{{ $finish->return_date ?? '-' }}</td>
+                                        <td>{{ $finish->book->title }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="navs-justified-rejects" role="tabpanel">
+                    <div class="table-responsive">
+                        <table id="example" class="display table nowrap text-center" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>status</th>
+                                    <th>Tanggal Pinjam</th>
+                                    <th>Tanggal Kembali</th>
+                                    <th>Buku</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($rejects as $no => $finish)
+                                    <tr>
+                                        <td>{{ ++$no }}.</td>
+                                        <td><span class="badge bg-danger">{{ $finish->status }}</span></td>
                                         <td>{{ $finish->borrow_date ?? '-' }}</td>
                                         <td>{{ $finish->return_date ?? '-' }}</td>
                                         <td>{{ $finish->book->title }}</td>

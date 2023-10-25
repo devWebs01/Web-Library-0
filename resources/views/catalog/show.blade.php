@@ -1,14 +1,8 @@
 <x-guest.layout>
     <x-slot name="title">Book {{ $book->title }}</x-slot>
-    <div class="card m-5 mt-1 pb-5 shadow-none">
-        @if ($errors->any())
-            @foreach ($errors->all() as $error)
-                <p class="text-center text-danger">
-                    {{ $error }}
-                </p>
-            @endforeach
-        @endif
-        <h5 class="fw-bold text-center mb-4 text-black">{{ $book->title }}</h5>
+    <div class="card m-5 mt-1 p-3 shadow-none">
+        <h5 class="mb-0">Detail Buku</h5>
+        <p class="mb-3">{{ $book->title }}</p>
         <div class="row g-3">
             <div class="col-md">
                 <div class="card-body border rounded">
