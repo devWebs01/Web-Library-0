@@ -42,7 +42,7 @@ Route::get('/catalog-books/{id}/show', [CatalogController::class, 'show'])->name
 
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -80,12 +80,6 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [BookController::class, 'destroy'])->name('books.destroy');
     });
 
-    Route::prefix('catalog-books')->group(function () {
-        Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
-        Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');
-        Route::get('/history', [CatalogController::class, 'history'])->name('catalog.history');
-    });
-
     Route::prefix('transactions')->group(function () {
         Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
@@ -105,4 +99,12 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+});
+
+Route::middleware(['auth', 'role:Anggota'])->group(function () {
+    Route::prefix('catalog-books')->group(function () {
+        Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
+        Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');
+        Route::get('/history', [CatalogController::class, 'history'])->name('catalog.history');
+    });
 });

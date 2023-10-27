@@ -5,8 +5,7 @@
             <div class="col-12 col-md-6">
                 <div class="card-body">
                     <h4 class="card-title display-6 mb-4 text-truncate lh-sm">Hello {{ Auth()->user()->name }}!🎉</h4>
-                    <p class="mb-0">You have done <span class="fw-semibold">68%</span>😎 more sales today.</p>
-                    <p class="mb-0">Check your new badge in your profile.</p>
+                    <p class="mb-0">Selamat menjalankan tugas dan semoga harimu menyenangkan.</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 position-relative text-center">

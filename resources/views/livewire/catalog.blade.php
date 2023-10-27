@@ -45,14 +45,9 @@
                             </p>
                         </div>
                         <div class="card-footer">
-                            <div
-                                class="d-flex flex-column flex-md-row gap-3 text-nowrap flex-wrap flex-md-nowrap  flex-lg-wrap flex-xxl-nowrap">
-                                <a class="w-100 btn btn-outline-primary d-flex align-items-center waves-effect"
-                                    href="{{ route('catalog.show', $book->id) }}">
-                                    <span class="me-1">Lihat</span><i
-                                        class="mdi mdi-arrow-right lh-1 scaleX-n1-rtl"></i>
-                                </a>
-                            </div>
+                            <a href="{{ route('catalog.show', $book->id) }}"
+                                class="btn btn-primary w-100 {{ $book->book_count == 0 ? 'disabled' : '' }}"><i
+                                    class="mdi mdi-arrow-right lh-1 scaleX-n1-rtl"></i>Lihat</a>
                         </div>
                     </div>
                 </div>

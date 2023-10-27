@@ -25,7 +25,6 @@
                         @if (auth()->user()->role == 'Anggota')
                             <a class="btn btn-outline-primary me-2" href="{{ route('catalog.history') }}">Riwayat</a>
                         @else
-                            <a class="btn btn-outline-primary me-2" href="{{ route('catalog.history') }}">Riwayat</a>
                             <a class="btn btn-outline-primary me-2" href="/home">Dashboard</a>
                         @endif
                     @else

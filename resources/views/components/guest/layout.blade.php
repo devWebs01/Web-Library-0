@@ -50,7 +50,7 @@
 
 <body class="bg-white">
     <x-guest.navbar></x-guest.navbar>
-    <div class="container-fluid mx-5">
+    <div class="container">
         @if (session('success'))
             <div class="alert alert-primary alert-dismissible mb-3" role="alert">
                 <h4 class="alert-heading d-flex align-items-center"><i
