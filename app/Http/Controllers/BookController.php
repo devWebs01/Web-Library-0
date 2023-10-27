@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use App\Models\Category;
+use App\Models\Transaction;
 use Illuminate\Support\Facades\Storage;
 
 class BookController extends Controller
@@ -13,7 +14,10 @@ class BookController extends Controller
     {
         return view('book.index', [
             'books' => Book::latest()->get(),
-            'categories' => Category::get()
+            'categories' => Category::get(),
+            'transactions' => Transaction::where('status', 'Berjalan')
+                ->orWhere('status', 'Terlambat')
+                ->get()
         ]);
     }
 

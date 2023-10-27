@@ -22,10 +22,13 @@ class CatalogController extends Controller
 
     public function show($id)
     {
+        $books = Book::inRandomOrder()->limit(6)->get();
+
         return view('catalog.show', [
             'book' => Book::FindOrFail($id),
             'borrow_date' => Carbon::now()->format('Y-m-d'),
-            'return_date' => Carbon::now()->addDays(7)->format('Y-m-d')
+            'return_date' => Carbon::now()->addDays(7)->format('Y-m-d'),
+            'books' => $books
         ]);
     }
 
@@ -61,7 +64,7 @@ class CatalogController extends Controller
     public function process($id)
     {
         $transaction = Transaction::findOrfail($id);
-        $books = Book::inRandomOrder()->get();
+        $books = Book::inRandomOrder()->limit(6)->get();
         $countdown = Carbon::parse($transaction->created_at)->addDays(1)->format('d, M Y, H:i:s');
 
         return view('catalog.process', [

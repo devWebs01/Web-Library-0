@@ -1,5 +1,5 @@
 <!-- Modal trigger button -->
-<button type="button" class="btn btn-primary btn-lg my-3" data-bs-toggle="modal" data-bs-target="#modalId">
+<button type="button" class="btn btn-primary w-100 btn-lg" data-bs-toggle="modal" data-bs-target="#modalId">
     Pinjam Buku
 </button>
 
@@ -16,7 +16,9 @@
                         peminjaman buku akan dilakukan setelah pengunjung memenuhi syarat dan ketentuan yang berlaku di
                         perpustakaan.</p>
 
-                    <input type="hidden" name="user_id" value="{{ Auth()->user()->id }}">
+                    @auth
+                        <input type="hidden" name="user_id" value="{{ Auth()->user()->id }}">
+                    @endauth
                     <input type="hidden" name="book_id" value="{{ $book->id }}">
                     <input type="hidden" name="status" value="Menunggu">
                 </div>

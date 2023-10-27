@@ -48,6 +48,9 @@
         <a href="/transactions" class="menu-link">
             <i class="menu-icon tf-icons mdi mdi-sync-circle"></i>
             <div data-i18n="transactions">Transaksi Perpustakaan</div>
+            <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
+                {{ $late_days }}
+            </div>
         </a>
     </li>
 
@@ -57,7 +60,7 @@
             <div data-i18n="penalties">Denda</div>
         </a>
     </li>
-    
+
     <li class="menu-item {{ request()->is('reports') ? 'active' : '' }}">
         <a href="/reports" class="menu-link">
             <i class="menu-icon tf-icons mdi mdi-cash"></i>

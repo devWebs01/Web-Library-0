@@ -38,7 +38,7 @@
                         <div class="card-body p-3 pt-2">
                             <div class="align-items-center mb-3 ">
                                 <span
-                                    class="badge rounded-pill bg-label-primary text-truncate">{{ $book->category->name }}</span>
+                                    class="badge rounded-pill bg-label-primary text-wrap">{{ $book->category->name }}</span>
                             </div>
                             <a href="{{ route('catalog.show', $book->id) }}" class="h5">{{ $book->title }}</a>
                             <p class="mt-2 text-truncate">{{ $book->synopsis }}
@@ -49,7 +49,7 @@
                                 class="d-flex flex-column flex-md-row gap-3 text-nowrap flex-wrap flex-md-nowrap  flex-lg-wrap flex-xxl-nowrap">
                                 <a class="w-100 btn btn-outline-primary d-flex align-items-center waves-effect"
                                     href="{{ route('catalog.show', $book->id) }}">
-                                    <span class="me-1">Continue</span><i
+                                    <span class="me-1">Lihat</span><i
                                         class="mdi mdi-arrow-right lh-1 scaleX-n1-rtl"></i>
                                 </a>
                             </div>

@@ -2,6 +2,57 @@
     <x-slot name="title">Penalties</x-slot>
     @include('layouts.table')
 
+    <div class="row mb-3">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0">Total Rp. {{ $all_amount }}</p>
+                        <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
+                            @forelse ($penalties->take(5) as $item)
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="{{ $item->transaction->user->name }}"
+                                    data-bs-original-title="{{ $item->transaction->user->name }}">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
+                            @empty
+                            @endforelse
+                        </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="role-heading">
+                            <h5 class="mb-1">Total Denda Masuk</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0">Total {{ $dont_payment->count() }} users</p>
+                        <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
+                            @forelse ($dont_payment->take(5) as $item)
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="Julee Rossignol"
+                                    data-bs-original-title="Julee Rossignol">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
+                            @empty
+                            @endforelse
+                        </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="role-heading">
+                            <h5 class="mb-1">Total Terlambat</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-body">
             <div class="table-responsive">

@@ -15,6 +15,12 @@ class UserController extends Controller
     {
         return view('user.index', [
             'users' => User::whereNotNull('email_verified_at')->latest()->get(),
+            'member' => User::where('role', 'Anggota')
+                ->whereNotNull('email_verified_at')
+                ->get(),
+            'officer' => User::where('role', 'Petugas')
+                ->whereNotNull('email_verified_at')
+                ->get(),
         ]);
     }
     public function store(UserRequest $request)

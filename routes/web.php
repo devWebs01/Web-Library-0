@@ -32,6 +32,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/catalog-books', [CatalogController::class, 'index'])->name('catalog.index');
+Route::get('/catalog-books/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
+
 
 
 Route::middleware(['auth'])->group(function () {
@@ -73,7 +75,6 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::prefix('catalog-books')->group(function () {
-        Route::get('/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
         Route::post('/', [CatalogController::class, 'store'])->name('catalog.store');
         Route::get('/{id}/process', [CatalogController::class, 'process'])->name('catalog.process');
         Route::get('/history', [CatalogController::class, 'history'])->name('catalog.history');

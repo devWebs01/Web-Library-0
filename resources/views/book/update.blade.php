@@ -1,7 +1,7 @@
 <!-- Modal trigger button -->
-{{-- <button type="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalId">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalId">
     Edit
-</button> --}}
+</button>
 
 <!-- Modal Body -->
 <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">

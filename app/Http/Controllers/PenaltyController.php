@@ -13,8 +13,21 @@ class PenaltyController extends Controller
 {
     public function index()
     {
+        $penalties = Penalty::get();
+        $total = 0;
+
+        foreach ($penalties as $penalty) {
+            $total += $penalty->amount;
+        }
+
+        $dont_payment = Transaction::where('status', 'Terlambat')
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+
         return view('penalty.index', [
-            'penalties' => Penalty::get()
+            'penalties' => $penalties,
+            'all_amount' => $total,
+            'dont_payment' => $dont_payment
         ]);
     }
     public function store(PenaltyRequest $request)

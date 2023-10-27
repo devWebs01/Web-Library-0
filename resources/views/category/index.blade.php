@@ -12,6 +12,7 @@
                         <tr>
                             <th>No.</th>
                             <th>Kategori</th>
+                            <th>Buku</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -20,6 +21,7 @@
                             <tr>
                                 <td>{{ ++$no }}.</td>
                                 <td>{{ $category->name }}</td>
+                                <td>{{ $category->books->count() }} Buku</td>
                                 <td>
                                     <div class="d-flex gap-3 align-items-center justify-content-center">
                                         @include('category.update')

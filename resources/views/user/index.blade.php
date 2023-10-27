@@ -1,6 +1,57 @@
 <x-auth.layout>
     @include('layouts.table')
     <x-slot name="title">Users</x-slot>
+    <div class="row mb-3">
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0">Total {{ $member->count() }} users</p>
+                        <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
+                            @forelse ($member->take(5) as $item)
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="{{ $item->name }}"
+                                    data-bs-original-title="{{ $item->name }}">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
+                            @empty
+                            @endforelse
+                        </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="role-heading">
+                            <h5 class="mb-1">Anggota</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md">
+            <div class="card">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <p class="mb-0">Total {{ $officer->count() }} users</p>
+                        <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
+                            @forelse ($officer->take(5) as $item)
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="{{ $item->name }}"
+                                    data-bs-original-title="{{ $item->name }}">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
+                            @empty
+                            @endforelse
+                        </ul>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div class="role-heading">
+                            <h5 class="mb-1">Petugas</h5>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header">
             @include('user.store')

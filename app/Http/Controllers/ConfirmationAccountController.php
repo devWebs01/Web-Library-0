@@ -10,7 +10,9 @@ class ConfirmationAccountController extends Controller
     public function index()
     {
         return view('confirmation.index', [
-            'users' => User::whereNull('email_verified_at')->latest()->get()
+            'users' => User::whereNull('email_verified_at')->latest()->get(),
+            'verified' => User::whereNotNull('email_verified_at')->get(),
+            'non_verified' => User::whereNull('email_verified_at')->get(),
         ]);
     }
 
