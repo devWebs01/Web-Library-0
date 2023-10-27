@@ -200,29 +200,6 @@
                 </div>
             </div>
         </div>
-        <div class="py-5 container">
-            <div class="row">
-                <div class="col-6 small">
-                    <div class="lc-block">
-                        <div editable="rich">
-                            <p>Copyright © My Company 2020</p>
-                        </div>
-                    </div>
-                    <!-- /lc-block -->
-                </div>
-                <div class="col-6 text-end small">
-                    <div class="lc-block">
-                        <div editable="rich">
-                            <p>
-                                <a class="text-decoration-none" href="#">License Details</a> -
-                                <a class="text-decoration-none" href="#">Terms &amp; Conditions</a>
-                            </p>
-                        </div>
-                    </div>
-                    <!-- /lc-block -->
-                </div>
-            </div>
-        </div>
     </section>
 
 

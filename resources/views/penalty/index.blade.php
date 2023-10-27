@@ -2,7 +2,7 @@
     <x-slot name="title">Penalties</x-slot>
     @include('layouts.table')
 
-    <div class="row mb-3">
+    <div class="row mb-3 gy-3">
         <div class="col-md">
             <div class="card">
                 <div class="card-body">
@@ -46,8 +46,10 @@
                     <div class="d-flex justify-content-between align-items-end">
                         <div class="role-heading">
                             <h5 class="mb-1">Total Terlambat</h5>
-
                         </div>
+                        @if ($dont_payment)
+                            <a href="{{ route('transactions.index') }}">Lihat</a>
+                        @endforelse
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 <x-auth.layout>
     @include('layouts.table')
     <x-slot name="title">Users</x-slot>
-    <div class="row mb-3">
+    <div class="row mb-3 gy-3">
         <div class="col-md">
             <div class="card">
                 <div class="card-body">

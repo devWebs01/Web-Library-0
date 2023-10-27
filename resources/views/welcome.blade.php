@@ -26,12 +26,15 @@
     </section>
     <section class="bg-light py-4" id="discover">
         <div class="container py-lg-7">
-            <h1 class="fw-bold text-center text-primary">Sistem informasi dirancang dengan <br> fitur menarik
+            <h1 class="fw-bold text-center text-primary">Sistem Informasi Perpustakaan <br> Dirancang
+                Dengan Fitur
+                Yang Menarik
             </h1>
             <div class="row mt-4 text-center">
                 <div class="col-md-4">
                     <div class="lc-block mb-6 mb-md-0">
                         <div editable="rich">
+                            <i class="mdi mdi-book-clock-outline mdi-48px"></i>
                             <h2 class="h4">Pesan Peminjaman Buku</h2>
                             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
                                 lacus est, rtiam diam metus.&nbsp;<br></p>
@@ -41,6 +44,7 @@
                 <div class="col-md-4">
                     <div class="lc-block mb-6 mb-md-0">
                         <div editable="rich">
+                            <i class="mdi mdi-book-sync mdi-48px"></i>
                             <h2 class="h4">Peminjaman dan Pengembalian Buku</h2>
                             <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
                                 lacus est, rtiam diam metus
@@ -51,6 +55,7 @@
                 <div class="col-md-4">
                     <div class="lc-block mb-6 mb-md-0">
                         <div editable="rich">
+                            <i class="mdi mdi-abacus mdi-48px"></i>
                             <h2 class="h4">Denda Otomatis</h2>
                             <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
                                 lacus est, rtiam diam metus.&nbsp;<br></p>
@@ -119,16 +124,15 @@
                     </div>
                     <div class="lc-block row row-cols-3 align-items-center">
                         <div class="col">
-                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ App\Models\User::count() }}</h3>
+                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ $user }}</h3>
                             <span editable="inline" class="mb-0 text-muted"> Anggota </span>
                         </div>
                         <div class="col">
-                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ App\Models\Transaction::count() }}
-                            </h3>
+                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ $transaction }}</h3>
                             <span editable="inline" class="mb-0 text-muted"> Transaksi </span>
                         </div>
                         <div class="col">
-                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ App\Models\Book::count() }}</h3>
+                            <h3 editable="inline" class="h2 mb-0 text-peimary">{{ $book }}</h3>
                             <span editable="inline" class="mb-0 text-muted">Buku </span>
                         </div>
                     </div>

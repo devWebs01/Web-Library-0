@@ -1,7 +1,7 @@
 <x-auth.layout>
     <x-slot name="title">Confirmation Account</x-slot>
     @include('layouts.table')
-    <div class="row mb-3">
+    <div class="row mb-3 gy-3">
         <div class="col-md">
             <div class="card">
                 <div class="card-body">

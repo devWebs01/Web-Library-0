@@ -13,12 +13,6 @@
                         data-bs-target="#navs-pills-top-security" aria-controls="navs-pills-top-security"
                         aria-selected="true"><i class="mdi mdi-lock-open-outline mdi-20px me-1"></i>Security</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light" role="tab" data-bs-toggle="tab"
-                        data-bs-target="#navs-pills-top-history" aria-controls="navs-pills-top-history"
-                        aria-selected="true"><i class="mdi mdi-bookmark-outline mdi-20px me-1"></i>history</a>
-                </li>
-
             </ul>
         </div>
         <div class="tab-content">
@@ -154,9 +148,6 @@
                         @include('auth.profile.password')
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="navs-pills-top-history" role="tabpanel">
-                @include('auth.profile.history')
             </div>
         </div>
     </div>
