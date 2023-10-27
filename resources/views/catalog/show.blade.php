@@ -15,7 +15,6 @@
             <div class="col-md">
                 <div class="card-body">
                     <div class="justify-content-between">
-                        <h5>Tentang Buku</h5>
                         <h2 class="fw-bold text-wrap mb-0">{{ $book->title }}</h2>
                         <p>{{ $book->category->name }}</p>
                         <p>{{ $book->synopsis }}</p>
