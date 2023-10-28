@@ -20,21 +20,18 @@
                         <p>{{ $book->synopsis }}</p>
                     </div>
                     <div class="row mb-0">
-                        <div class="col-md">
-                            <p class="text-wrap"><i class="mdi mdi-identifier mdi-24px me-2"></i>ISBN:
-                                {{ $book->isbn }}</p>
-                            <p class="text-wrap"><i class="mdi mdi-counter mdi-24px me-2"></i>Jumlah Buku:
-                                {{ $book->book_count }}</p>
-                            <p class="text-wrap"><i class="mdi mdi-face-man mdi-24px me-2"></i>Penulis:
-                                {{ $book->author }}</p>
-                        </div>
-                        <div class="col-md">
-                            <p class="text-wrap"><i class="mdi mdi-clipboard-text-clock mdi-24px me-2"></i>Tahun
-                                Terbit:
-                                {{ $book->year_published }}</p>
-                            <p class="text-wrap"><i class="mdi mdi-domain mdi-24px me-2"></i>Penerbit:
-                                {{ $book->publisher }}</p>
-                        </div>
+                        <p class="text-wrap"><i class="mdi mdi-identifier mdi-24px me-2"></i>ISBN:
+                            {{ $book->isbn }}</p>
+                        <p class="text-wrap"><i class="mdi mdi-counter mdi-24px me-2"></i>Jumlah Buku:
+                            {{ $book->book_count }}</p>
+                        <p class="text-wrap"><i class="mdi mdi-face-man mdi-24px me-2"></i>Penulis:
+                            {{ $book->author }}</p>
+
+                        <p class="text-wrap"><i class="mdi mdi-clipboard-text-clock mdi-24px me-2"></i>Tahun
+                            Terbit:
+                            {{ $book->year_published }}</p>
+                        <p class="text-wrap"><i class="mdi mdi-domain mdi-24px me-2"></i>Penerbit:
+                            {{ $book->publisher }}</p>
                         @include('catalog.store')
                     </div>
 
