@@ -49,6 +49,8 @@
 </head>
 
 <body class="bg-white">
+    @include('layouts.payment_date')
+
     <x-guest.navbar></x-guest.navbar>
     <div class="container">
         @if (session('success'))
