@@ -26,6 +26,11 @@
                                 @method('PUT')
                                 <button type="submit" class="btn btn-success btn-sm">Selesai</button>
                             </form>
+                            <form action="{{ route('transactions.extratime', $item->id) }}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <button type="submit" class="btn btn-warning btn-sm">Perpanjang</button>
+                            </form>
                         </div>
                     </td>
                 </tr>

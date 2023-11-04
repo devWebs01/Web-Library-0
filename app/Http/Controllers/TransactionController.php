@@ -123,4 +123,18 @@ class TransactionController extends Controller
 
         return back()->with('success', 'Proses peminjaman dan pengembalian buku berhasil di tolak.');
     }
+
+    public function extratime($id)
+    {
+        $transaction = Transaction::findOrfail($id);
+
+        $transaction->update([
+            'status' => 'Berjalan',
+            'return_date' => Carbon::parse($transaction->return_date)
+                ->addDays(7)
+                ->format('Y-m-d'),
+        ]);
+
+        return back()->with('success', 'Proses perpanjangan waktu peminjaman dan pengembalian buku telah dilakukan.');
+    }
 }

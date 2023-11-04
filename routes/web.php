@@ -90,6 +90,7 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
         Route::put('/{id}/confirmation', [TransactionController::class, 'confirmation'])->name('transactions.confirmation');
         Route::put('/{id}/reject', [TransactionController::class, 'reject'])->name('transactions.reject');
         Route::put('/{id}/finished', [TransactionController::class, 'finished'])->name('transactions.finished');
+        Route::put('/{id}/extratime', [TransactionController::class, 'extratime'])->name('transactions.extratime');
     });
 
     Route::prefix('penalties')->group(function () {
