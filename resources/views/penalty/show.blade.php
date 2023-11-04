@@ -45,6 +45,10 @@
                             </div>
                             <div class="my-5 text-center">
                                 @include('penalty.store')
+                                <div class="divider divider-primary">
+                                    <div class="divider-text">Atau</div>
+                                </div>
+                                @include('penalty.createAndUpdate')
                             </div>
                         </div>
                     </div>
