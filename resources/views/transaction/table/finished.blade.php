@@ -20,8 +20,8 @@
                     <td>{{ $item->return_date ?? '-' }}</td>
                     <td>
                         <div class="d-flex gap-2">
-                            @include('transaction.show')
-                        </div>
+                            <a class="btn btn-primary btn-sm" href="{{ route('transactions.show', $item->id) }}"
+                                role="button">Lihat</a>                        </div>
                     </td>
                 </tr>
             @endforeach

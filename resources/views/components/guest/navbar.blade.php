@@ -23,13 +23,19 @@
                 <div class="ms-lg-auto">
                     @auth
                         @if (auth()->user()->role == 'Anggota')
-                            <a class="btn btn-outline-primary me-2" href="{{ route('catalog.history') }}">Riwayat</a>
+                            <a class="btn btn-outline-primary btn-sm" href="{{ route('catalog.history') }}">Riwayat</a>
+                            <a class="btn btn-outline-danger btn-sm" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         @else
-                            <a class="btn btn-outline-primary me-2" href="/home">Dashboard</a>
+                            <a class="btn btn-outline-primary btn-sm" href="/home">Dashboard</a>
                         @endif
                     @else
-                        <a class="btn btn-outline-primary me-2" href="/login">Login</a>
-                        <a class="btn btn-primary" href="/register">Register</a>
+                        <a class="btn btn-outline-primary btn-sm" href="/login">Login</a>
+                        <a class="btn btn-primary btn-sm" href="/register">Register</a>
                     @endauth
                 </div>
             </div>

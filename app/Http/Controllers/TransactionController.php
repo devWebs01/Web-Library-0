@@ -28,9 +28,7 @@ class TransactionController extends Controller
             ->get();
 
         $borrow_date = Carbon::now()->format('Y-m-d');
-
         $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
-
         $users = User::select('id', 'name')->get();
         $books = Book::get();
 
@@ -59,7 +57,6 @@ class TransactionController extends Controller
             })
             ->count();
 
-
         if ($transaction >= 3) {
             return back()->with('warning', 'Peminjaman melebihi batas yang telah ditentukan 😀');
         } else {
@@ -77,6 +74,47 @@ class TransactionController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $users = User::select('id', 'name')->get();
+        $books = Book::get();
+
+        return view(
+            'transaction.show',
+            compact('transaction', 'users', 'books')
+        );
+    }
+    public function update(TransactionRequest $request, $id)
+    {
+        $validate = $request->validated();
+        $transaction = Transaction::findOrFail($id);
+        $findbook = Book::findOrFail($transaction->book->id);
+
+        if ($request->book_id != $findbook->id) {
+            $findbook->book_count++;
+            $findbook->save();
+
+            $book = Book::findOrFail($request->book_id);
+            $book->book_count--;
+            $book->save();
+        }
+
+        $transaction->update($validate);
+
+        return back()->with('success', 'Proses perubahan data telah berhasil dilakukan.');
+    }
+    public function destroy($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+
+        $book = Book::findOrfail($transaction->book->id);
+        $book->book_count++;
+        $book->save();
+
+        $transaction->delete();
+        return redirect()->route('transactions.index')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
+    }
     public function confirmation(Request $request, $id)
     {
         $validate = $request->validate([

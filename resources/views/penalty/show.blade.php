@@ -7,9 +7,6 @@
                 <div class="card-header">
                     <div class="card-title text-center">
                         <h5 class="fw-bold">Pembayaran Denda Peminjaman dan Pengembalian Buku Perpustakaan</h5>
-                        <p class="fw-bold">Kode Peminjaman :</p>
-                        <button class="btn btn-body text-black" disabled
-                            style="outline-style: dashed;">{{ $transaction->code }}</button>
                     </div>
                 </div>
                 <div class="table-responsive">
@@ -19,7 +16,6 @@
                                 <tr>
                                     <th>Tanggal Peminjaman</th>
                                     <th>Tanggal Kembali</th>
-                                    <th>Status</th>
                                     <th>Tanggal Lewat</th>
                                 </tr>
                             </thead>
@@ -27,7 +23,6 @@
                                 <tr>
                                     <td>{{ $transaction->borrow_date }}</td>
                                     <td>{{ $transaction->return_date }}</td>
-                                    <td><span class="badge bg-danger">{{ $transaction->status }}</span></td>
                                     <td>{{ $lates_day }} Hari Berlalu</td>
                                 </tr>
                             </tbody>
@@ -80,14 +75,14 @@
 
             <div class="card mb-4">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h5 class="card-title m-0">Detail Buku</h5>
+                    <h6 class="card-title m-0">Detail Buku</h6>
                     <h6 class="m-0"><a href="{{ route('books.show', $transaction->book->id) }}">Lihat</a></h6>
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-start align-items-center mb-4">
                         <div class="avatar me-2 pe-1">
                             <img src="{{ Storage::url($transaction->book->image) }}" alt="Avatar"
-                                class="rounded-circle">
+                                class="rounded-circle w-auto">
                         </div>
                         <div class="d-flex flex-column">
                             <a href="app-user-view-account.html">
