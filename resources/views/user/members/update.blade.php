@@ -73,21 +73,8 @@
                                 @enderror
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
-                        <div class="col-md">
-                            <div class="form-floating form-floating-outline mb-3">
-                                <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                    name="password" id="password" placeholder="Enter your password" />
-                                <label for="password">Password</label>
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
                         <div class="col-md">
                             <div class="form-floating form-floating-outline mb-3">
                                 <input type="date" class="form-control @error('birthdate') is-invalid @enderror"
@@ -101,8 +88,6 @@
                                 @enderror
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating form-floating-outline mb-3">
                                 <select class="form-select form-control @error('gender') is-invalid @enderror"
@@ -121,6 +106,8 @@
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md">
                             <div class="form-floating form-floating-outline mb-3">
                                 <select class="form-select form-control @error('role') is-invalid @enderror"
@@ -137,11 +124,35 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="col-md">
+                            <div class="form-floating form-floating-outline mb-3">
+                                <input type="text" class="form-control @error('majors') is-invalid @enderror"
+                                    name="majors" value="{{ $user->majors }}" placeholder="Enter your majors"
+                                    required />
+                                <label for="majors">Jurusan</label>
+                                @error('majors')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-floating form-floating-outline mb-3">
+                        <input type="password" class="form-control @error('password') is-invalid @enderror"
+                            name="password" id="password" placeholder="Enter your password" />
+                        <label for="password">Password</label>
+                        @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
+
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>

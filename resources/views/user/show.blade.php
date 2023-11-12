@@ -60,18 +60,23 @@
                 </div>
                 <div class="col-md">
                     <div class="form-floating form-floating-outline mb-3">
-                        <input type="date" class="form-control
-                                name="birthdate"
-                            value="{{ $user->birthdate }}" id="birthdate" disabled placeholder="Enter your birthdate"
-                            autofocus />
+                        <input type="date" class="form-control" name="birthdate" value="{{ $user->birthdate }}"
+                            id="birthdate" disabled placeholder="Enter your birthdate" autofocus />
                         <label for="birthdate">Tanggal Lahir</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md">
+                    <div class="form-floating form-floating-outline mb-3">
+                        <input type="text" class="form-control" name="majors" value="{{ $user->majors ?? '-' }}"
+                            id="majors" disabled placeholder="Enter your majors" autofocus />
+                        <label for="majors">Jurusan</label>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="form-floating form-floating-outline mb-3">
-                        <select class="form-select form-control"
-                                name="role"
-                            id="role" disabled>
+                        <select class="form-select form-control" name="role" id="role" disabled>
                             <option disabled>Pilih satu</option>
                             <option value="Anggota" {{ $user->role == 'Anggota' ? '' : '' }}>Anggota
                             </option>

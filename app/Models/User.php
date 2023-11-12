@@ -24,6 +24,7 @@ class User extends Authenticatable
         'slug',
         'telp',
         'role',
+        'majors',
         'birthdate',
         'gender',
         'identify',

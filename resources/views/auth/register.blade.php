@@ -64,7 +64,7 @@
                                     </svg>
                                 </span>
                             </span>
-                            <span class="app-brand-text demo text-heading fw-semibold">Materio</span>
+                            <span class="app-brand-text demo text-heading fw-semibold">PERPUS</span>
                         </a>
                     </div>
                     <!-- /Logo -->
@@ -141,18 +141,22 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md">
-                                    <div class="form-floating form-floating-outline mb-3">
-                                        <input type="number" class="form-control @error('telp') is-invalid @enderror"
-                                            name="telp" value="{{ old('telp') }}" id="telp"
-                                            placeholder="Enter your telp" autofocus />
-                                        <label for="telp">Telp</label>
-                                        @error('telp')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
+                                <div class="col-md mb-3">
+                                    <div class="input-group input-group-merge">
+                                        <span class="input-group-text @error('telp') bg-danger text-white border-danger @enderror">+62</span>
+                                        <div class="form-floating form-floating-outline">
+                                            <input type="number"
+                                                class="form-control @error('telp') is-invalid @enderror"
+                                                name="telp" value="{{ old('telp') }}" id="telp"
+                                                placeholder="852XXXXXX" autofocus />
+                                            <label for="telp">Telp</label>
+                                        </div>
                                     </div>
+                                    @error('telp')
+                                        <small class="fw-bold text-danger" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </small>
+                                    @enderror
                                 </div>
                                 <div class="col-md">
                                     <div class="form-floating form-floating-outline mb-3">
@@ -168,7 +172,20 @@
                                         @enderror
                                     </div>
                                 </div>
-
+                                <div class="col-md">
+                                    <div class="form-floating form-floating-outline mb-3">
+                                        <input type="text"
+                                            class="form-control @error('majors') is-invalid @enderror" name="majors"
+                                            value="{{ old('majors') }}" id="majors"
+                                            placeholder="Enter your majors" autofocus />
+                                        <label for="majors">Jurusan</label>
+                                        @error('majors')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md">
@@ -206,7 +223,7 @@
                             <div class="mb-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="terms-conditions"
-                                        name="terms" />
+                                        name="terms" required />
                                     <label class="form-check-label" for="terms-conditions">
                                         I agree to
                                         <a href="javascript:void(0);">privacy policy & terms</a>

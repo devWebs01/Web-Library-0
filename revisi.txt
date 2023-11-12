@@ -1,5 +1,5 @@
-TO DO LIST : 
-1. mengelola user dan anggota dipisahkan, menu: anggota, admin, konfirmasi
+TO DO LIST :
+1. mengelola user dan anggota dipisahkan, menu: anggota, admin, konfirmasi - solved
 2. tambahkan jurusan pada saat mengisi data anggota
 3. tambahkan mengelola data rak buku pada program
 4. petugas bisa mengelola laporan
