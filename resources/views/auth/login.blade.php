@@ -52,13 +52,13 @@
                                     </svg>
                                 </span>
                             </span>
-                            <span class="app-brand-text demo text-heading fw-semibold">Materio</span>
+                            <span class="app-brand-text demo text-heading fw-semibold">PERPUS</span>
                         </a>
                     </div>
                     <!-- /Logo -->
 
                     <div class="card-body mt-2">
-                        <h4 class="mb-2">Welcome to Materio! 👋</h4>
+                        <h4 class="mb-2">Welcome to Users! 👋</h4>
                         <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
                         <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">

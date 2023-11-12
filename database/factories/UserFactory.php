@@ -21,6 +21,7 @@ class UserFactory extends Factory
             'slug' => $this->faker->slug(),
             'telp' => $this->faker->numerify(),
             'role' => $this->faker->randomElement(['Petugas', 'Anggota', 'Kepala']),
+            'majors' => $this->faker->randomElement(['IPA', 'IPS', null]),
             'birthdate' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['Laki-laki', 'Perempuan']),
             'identify' => $this->faker->ean13,

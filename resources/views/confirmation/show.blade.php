@@ -18,10 +18,10 @@
                                 <span class="fw-bold">NIS/Etc.: </span> {{ $user->identify }}
                             </li>
                             <li>
-                                <span class="fw-bold">Role: </span> {{ $user->role }}
+                                <span class="fw-bold">Status: </span> {{ $user->role }}
                             </li>
                             <li>
-                                <span class="fw-bold">Role: </span>
+                                <span class="fw-bold">Tanggal Lahir: </span>
                                 {{ Carbon\Carbon::parse($user->birthdate)->format('d, M Y') }}
                             </li>
                         </ul>
@@ -36,6 +36,9 @@
                             </li>
                             <li>
                                 <span class="fw-bold">Jenis Kelamin: </span> {{ $user->gender }}
+                            </li>
+                            <li>
+                                <span class="fw-bold">Jurusan: </span> {{ $user->majors ?? '-' }}
                             </li>
                         </ul>
                     </div>

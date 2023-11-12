@@ -53,7 +53,9 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     });
 
     Route::prefix('users')->group(function () {
-        Route::get('/', [UserController::class, 'index'])->name('users.index');
+        Route::get('/officers', [UserController::class, 'officers'])->name('users.officers');
+        Route::get('/members', [UserController::class, 'members'])->name('users.members');
+        
         Route::post('/', [UserController::class, 'store'])->name('users.store');
         Route::get('/{slug}/show', [UserController::class, 'show'])->name('users.show');
         Route::put('/{id}', [UserController::class, 'update'])->name('users.update');

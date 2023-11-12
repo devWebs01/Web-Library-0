@@ -111,8 +111,8 @@
                                 <select class="form-select form-control @error('role') is-invalid @enderror"
                                     name="role" id="role">
                                     <option selected disabled>Pilih satu</option>
-                                    <option value="Anggota">Anggota</option>
                                     <option value="Petugas">Petugas</option>
+                                    <option value="Kepala">Kepala</option>
                                 </select>
                                 <label for="role">Status</label>
                                 @error('role')
@@ -125,8 +125,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
