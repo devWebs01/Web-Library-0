@@ -82,11 +82,5 @@
                 </div>
             </div>
         </div>
-
-        <div class="card-body text-end">
-            <h4 class="mb-0">History</h4>
-            <p>informasi pengguna di perbarui sejak {{ $user->updated_at }}</p>
-        </div>
-
     </div>
 </x-auth.layout>

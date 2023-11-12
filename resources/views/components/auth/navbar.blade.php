@@ -17,8 +17,13 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('users.index') }}" class="menu-link">
-                        <div data-i18n="Data-User">Data User</div>
+                    <a href="{{ route('users.officers') }}" class="menu-link">
+                        <div data-i18n="Data-User">Admin</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('users.members') }}" class="menu-link">
+                        <div data-i18n="Data-User">Anggota</div>
                     </a>
                 </li>
                 <li class="menu-item">
@@ -49,8 +54,13 @@
             </a>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('users.index') }}" class="menu-link">
-                        <div data-i18n="Data-User">Data User</div>
+                    <a href="{{ route('users.officers') }}" class="menu-link">
+                        <div data-i18n="Data-User">Admin</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('users.members') }}" class="menu-link">
+                        <div data-i18n="Data-User">Anggota</div>
                     </a>
                 </li>
                 <li class="menu-item">
