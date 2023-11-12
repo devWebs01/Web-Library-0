@@ -55,7 +55,7 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/officers', [UserController::class, 'officers'])->name('users.officers');
         Route::get('/members', [UserController::class, 'members'])->name('users.members');
-        
+
         Route::post('/', [UserController::class, 'store'])->name('users.store');
         Route::get('/{slug}/show', [UserController::class, 'show'])->name('users.show');
         Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
@@ -83,7 +83,10 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     });
 
     Route::prefix('transactions')->group(function () {
-        Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
+        Route::get('/borrow', [TransactionController::class, 'borrow'])->name('transactions.borrow');
+        Route::get('/return', [TransactionController::class, 'return'])->name('transactions.return');
+
+
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
         Route::get('/{id}/show', [TransactionController::class, 'show'])->name('transactions.show');
         Route::put('/{id}', [TransactionController::class, 'update'])->name('transactions.update');

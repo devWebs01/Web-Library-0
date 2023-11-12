@@ -7,8 +7,9 @@
     </li>
 
     @if (Auth()->user()->role == 'Kepala')
-        <li class="menu-item {{ request()->is(['users', 'confirmation-account']) ? 'active' : '' }}">
-            <a href="/users" class="menu-link menu-toggle">
+        <li
+            class="menu-item {{ request()->is(['users/officers', 'users/members', 'confirmation-account']) ? 'active' : '' }}">
+            <a class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-human"></i>
                 <div data-i18n="Users">Users</div>
                 <div class="badge bg-danger rounded-pill ms-auto {{ $pending == null ? 'd-none' : '' }}">
@@ -44,8 +45,9 @@
             </a>
         </li>
     @else
-        <li class="menu-item {{ request()->is(['users', 'confirmation-account']) ? 'active' : '' }}">
-            <a href="/users" class="menu-link menu-toggle">
+        <li
+            class="menu-item {{ request()->is(['users/officers', 'users/members', 'confirmation-account']) ? 'active' : '' }}">
+            <a class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-human"></i>
                 <div data-i18n="Users">Users</div>
                 <div class="badge bg-danger rounded-pill ms-auto {{ $pending == null ? 'd-none' : '' }}">
@@ -88,20 +90,64 @@
             </a>
         </li>
 
-        <li class="menu-item {{ request()->is('transactions') ? 'active' : '' }}">
-            <a href="/transactions" class="menu-link">
+        <li class="menu-item {{ request()->is(['transactions/borrow', 'waiting']) ? 'active' : '' }}">
+            <a class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-sync-circle"></i>
-                <div data-i18n="transactions">Transaksi Perpustakaan</div>
+                <div data-i18n="borrow">Peminjaman</div>
+                <div class="badge bg-danger rounded-pill ms-auto {{ $waiting == null ? 'd-none' : '' }}">
+                    {{ $waiting }}
+                </div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('transactions.borrow') }}" class="menu-link">
+                        <div data-i18n="Data-User">Konfirmasi</div>
+                        <div class="badge bg-danger rounded-pill ms-auto {{ $waiting == null ? 'd-none' : '' }}">
+                            {{ $waiting }}
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('transactions.borrow') }}" class="menu-link">
+                        <div data-i18n="Data-User">Buku DIpinjam</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-item {{ request()->is(['transactions/return', 'penalties']) ? 'active' : '' }}">
+            <a class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons mdi mdi-sync"></i>
+                <div data-i18n="return">Pengembalian</div>
                 <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
                     {{ $late_days }}
                 </div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('transactions.return') }}" class="menu-link">
+                        <div data-i18n="Data-User">Buku Kembali</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('penalties.index') }}" class="menu-link">
+                        <div data-i18n="Data-User">Denda</div>
+                        <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
+                            {{ $late_days }}
+                        </div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
-        <li class="menu-item {{ request()->is('penalties') ? 'active' : '' }}">
-            <a href="/penalties" class="menu-link">
-                <i class="menu-icon tf-icons mdi mdi-cash"></i>
-                <div data-i18n="penalties">Denda</div>
+        <li class="menu-item {{ request()->is('reports') ? 'active' : '' }}">
+            <a href="/reports" class="menu-link">
+                <i class="menu-icon tf-icons mdi mdi-text"></i>
+                <div data-i18n="reports">Laporan</div>
             </a>
         </li>
     @endif

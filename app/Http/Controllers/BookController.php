@@ -64,6 +64,6 @@ class BookController extends Controller
 
         Storage::delete($book->image);
 
-        return back()->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
+        return redirect()->route('books.index')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
     }
 }
