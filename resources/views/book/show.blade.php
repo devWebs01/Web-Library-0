@@ -33,13 +33,11 @@
                                 {{ $book->year_published }}</p>
                             <p class="text-wrap"><i class="mdi mdi-domain mdi-24px me-2"></i>Penerbit:
                                 {{ $book->publisher }}</p>
+                            <p class="text-wrap"><i class="mdi mdi-book mdi-24px me-2"></i>Rak Buku:
+                                {{ $book->bookshelf->name }}</p>
                             <div class="d-grid gap-3">
                                 @include('book.update')
-                                <form action="{{ route('books.destroy', $book->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger w-100">Hapus</button>
-                                </form>
+                                @include('book.destroy')
                             </div>
                         </div>
                     </div>

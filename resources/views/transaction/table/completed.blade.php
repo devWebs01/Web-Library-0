@@ -7,7 +7,7 @@
             <div class="col-12 col-md-6">
                 <div class="card-body">
                     <h4 class="card-title display-6 mb-4 text-truncate lh-sm">Hello {{ Auth()->user()->name }}!🎉</h4>
-                    <p class="mb-0">Saat ini ada {{ $walking->count() }} transaksi peminjaman buku.</p>
+                    <p class="mb-0">Saat ini ada {{ $completed->count() }} transaksi peminjaman buku telah selesai.</p>
                 </div>
             </div>
             <div class="col-12 col-md-6 position-relative text-center">
@@ -17,19 +17,9 @@
         </div>
     </div>
 
-    <div class="card mb-3">
-        <h5 class="card-header pb-0">
-            Tambah Peminjaman Buku
-        </h5>
-        <div class="card-body">
-            @include('transaction.store')
-        </div>
-    </div>
-
-
     <div class="card">
         <h5 class="card-header">
-            Peminjaman Buku
+            Peminjaman selesai
         </h5>
         <div class="card-body">
             <div class="table-responsive">
@@ -37,7 +27,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
-                            <th>nama lengkap</th>
+                            <th>Nama Lengkap</th>
                             <th>status</th>
                             <th>Tanggal Pinjam</th>
                             <th>Tanggal Kembali</th>
@@ -45,37 +35,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($walking as $no => $item)
+                        @foreach ($completed as $no => $item)
                             <tr>
                                 <td>{{ ++$no }}.</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
-                                <td><span
-                                        class="badge bg-{{ $item->status == 'Terlambat' ? 'danger' : 'primary' }}">{{ $item->status }}</span>
-                                </td>
+                                <td><span class="badge bg-primary">{{ $item->status }}</span></td>
                                 <td>{{ $item->borrow_date ?? '-' }}</td>
                                 <td>{{ $item->return_date ?? '-' }}</td>
                                 <td>
                                     <div class="d-flex gap-2">
                                         <a class="btn btn-primary btn-sm"
-                                            href="{{ route('transactions.show', $item->id) }}" role="button">lihat</a>
-                                        @if ($item->status == 'Terlambat')
-                                            <a class="btn btn-danger btn-sm"
-                                                href="{{ route('penalties.show', $item->id) }}" role="button">Bayar</a>
-                                        @else
-                                            <form action="{{ route('transactions.finished', $item->id) }}"
-                                                method="post">
-                                                @csrf
-                                                @method('PUT')
-                                                <button type="submit" class="btn btn-success btn-sm">Selesai</button>
-                                            </form>
-                                        @endif
-
-                                        <form action="{{ route('transactions.extratime', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('PUT')
-                                            <button type="submit" class="btn btn-warning btn-sm">Perpanjang</button>
-                                        </form>
-                                    </div>
+                                        href="{{ route('transactions.show', $item->id) }}" role="button">lihat</a>                                    </div>
                                 </td>
                             </tr>
                         @endforeach

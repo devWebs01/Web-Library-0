@@ -16,6 +16,10 @@
                                     <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
                                 </li>
                             @empty
+                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                            class="avatar pull-up" aria-label="0" data-bs-original-title="0">
+                            <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                        </li>
                             @endforelse
                         </ul>
                     </div>
@@ -35,11 +39,15 @@
                         <ul class="list-unstyled d-flex align-items-center avatar-group mb-0">
                             @forelse ($dont_payment->take(5) as $item)
                                 <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                    class="avatar pull-up" aria-label="Julee Rossignol"
-                                    data-bs-original-title="Julee Rossignol">
+                                    class="avatar pull-up" aria-label="{{ $item->user->name }}"
+                                    data-bs-original-title="{{ $item->user->name }}">
                                     <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
                                 </li>
                             @empty
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="0" data-bs-original-title="0">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
                             @endforelse
                         </ul>
                     </div>
@@ -48,7 +56,7 @@
                             <h5 class="mb-1">Total Terlambat</h5>
                         </div>
                         @if ($dont_payment)
-                            <a href="{{ route('transactions.index') }}">Lihat</a>
+                            <a href="{{ route('transactions.walking') }}">Lihat</a>
                         @endforelse
                     </div>
                 </div>

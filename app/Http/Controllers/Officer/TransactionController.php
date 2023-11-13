@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Officer;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Book;
 use App\Models\Transaction;
@@ -12,37 +13,59 @@ use Illuminate\Support\Str;
 
 class TransactionController extends Controller
 {
-    public function index()
+    public function waiting()
     {
         $waiting = Transaction::where('status', 'Menunggu')
             ->orderBy('updated_at', 'DESC')
             ->get();
-        $walking = Transaction::where('status', 'Berjalan')
-            ->orderBy('updated_at', 'DESC')
-            ->get();
-        $penalty = Transaction::where('status', 'Terlambat')
-            ->orderBy('updated_at', 'DESC')
-            ->get();
-        $finished = Transaction::where('status', 'Selesai')
+
+
+        return view('transaction.table.waiting', [
+            'waiting' => $waiting,
+        ]);
+    }
+    public function walking()
+    {
+        $walking = Transaction::whereIn('status', ['Berjalan', 'Terlambat'])
             ->orderBy('updated_at', 'DESC')
             ->get();
 
         $borrow_date = Carbon::now()->format('Y-m-d');
         $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
-        $users = User::select('id', 'name')->get();
+
+        $users = User::whereRole('Anggota')->select('id', 'name')->get();
         $books = Book::get();
 
-        return view('transaction.index', [
-            'waiting' => $waiting,
+        return view('transaction.table.walking', [
             'walking' => $walking,
-            'penalty' => $penalty,
-            'finished' => $finished,
             'borrow_date' => $borrow_date,
             'return_date' => $return_date,
             'users' => $users,
             'books' => $books,
         ]);
     }
+    public function completed()
+    {
+        $completed = Transaction::where('status', 'Selesai')
+            ->orderBy('updated_at', 'DESC')
+            ->get();
+
+        $borrow_date = Carbon::now()->format('Y-m-d');
+
+        $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
+
+        $users = User::whereRole('Anggota')->select('id', 'name')->get();
+        $books = Book::get();
+
+        return view('transaction.table.completed', [
+            'completed' => $completed,
+            'borrow_date' => $borrow_date,
+            'return_date' => $return_date,
+            'users' => $users,
+            'books' => $books,
+        ]);
+    }
+
     public function store(TransactionRequest $request)
     {
         $validate = $request->validated();
@@ -74,47 +97,6 @@ class TransactionController extends Controller
         }
     }
 
-    public function show($id)
-    {
-        $transaction = Transaction::findOrFail($id);
-        $users = User::select('id', 'name')->get();
-        $books = Book::get();
-
-        return view(
-            'transaction.show',
-            compact('transaction', 'users', 'books')
-        );
-    }
-    public function update(TransactionRequest $request, $id)
-    {
-        $validate = $request->validated();
-        $transaction = Transaction::findOrFail($id);
-        $findbook = Book::findOrFail($transaction->book->id);
-
-        if ($request->book_id != $findbook->id) {
-            $findbook->book_count++;
-            $findbook->save();
-
-            $book = Book::findOrFail($request->book_id);
-            $book->book_count--;
-            $book->save();
-        }
-
-        $transaction->update($validate);
-
-        return back()->with('success', 'Proses perubahan data telah berhasil dilakukan.');
-    }
-    public function destroy($id)
-    {
-        $transaction = Transaction::findOrFail($id);
-
-        $book = Book::findOrfail($transaction->book->id);
-        $book->book_count++;
-        $book->save();
-
-        $transaction->delete();
-        return redirect()->route('transactions.index')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
-    }
     public function confirmation(Request $request, $id)
     {
         $validate = $request->validate([
@@ -174,5 +156,48 @@ class TransactionController extends Controller
         ]);
 
         return back()->with('success', 'Proses perpanjangan waktu peminjaman dan pengembalian buku telah dilakukan.');
+    }
+
+    public function update(TransactionRequest $request, $id)
+    {
+        $validate = $request->validated();
+
+        $transaction = Transaction::findOrFail($id);
+
+        // Check if there are changes in the books
+        if ($request->book_id != $transaction->book->id) {
+            // Increase book_count for the books that were previously associated
+            Book::where('id', $transaction->book->id)->increment('book_count');
+
+            // Decrease book_count for the newly selected books
+            Book::where('id', $request->book_id)->decrement('book_count');
+        }
+
+        // Update the transaction with the validated data
+        $transaction->update($validate);
+
+        return back()->with('success', 'Proses perubahan data peminjaman dan pengembalian buku telah dilakukan.');
+    }
+
+    public function show($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+        $users = User::whereRole('Anggota')->select('id', 'name')->get();
+        $books = Book::get();
+
+        return view(
+            'transaction.show',
+            compact('transaction', 'users', 'books')
+        );
+    }
+    public function destroy($id)
+    {
+        $transaction = Transaction::findOrFail($id);
+
+        Book::where('id', $transaction->book->id)->increment('book_count');
+
+        $transaction->delete();
+
+        return redirect()->route('transactions.walking')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
     }
 }

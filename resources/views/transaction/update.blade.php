@@ -1,14 +1,14 @@
 <form action="{{ route('transactions.update', $transaction->id) }}" method="post">
     @csrf
     @method('PUT')
+    <input type="hidden" name="status" value="Berjalan">
     <div class="card-body">
-        <smal class="text-muted">EDIT TRANSAKSI</smal>
-        <div class="row mt-2">
+        <div class="row">
             <div class="col-md">
                 <div class="mb-3">
                     <label for="user_id" class="form-label">Nama Lengkap</label>
                     <select class="form-select" name="user_id" id="user_id">
-                        <option>Select one</option>
+                        <option selected>Select one</option>
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}"
                                 {{ $transaction->user->id == $user->id ? 'selected' : '' }}>- {{ $user->name }}
@@ -39,28 +39,27 @@
             <div class="col-md">
                 <div class="mb-3">
                     <label for="borrow_date" class="form-label">Tanggal Pinjam</label>
-                    <input type="date" class="form-control" name="borrow_date"
-                        value="{{ $transaction->borrow_date }}" id="borrow_date" aria-describedby="helpId"
-                        placeholder="borrow_date">
+                    <input type="date" class="form-control" value="{{ $transaction->borrow_date }}"
+                        name="borrow_date" id="borrow_date" aria-describedby="helpId" placeholder="borrow_date">
                 </div>
             </div>
             <div class="col-md">
                 <div class="mb-3">
                     <label for="return_date" class="form-label">Tanggal Kembali</label>
-                    <input type="date" class="form-control" name="return_date"
-                        value="{{ $transaction->return_date }}" id="return_date" aria-describedby="helpId"
-                        placeholder="return_date">
+                    <input type="date" class="form-control" value="{{ $transaction->return_date }}"
+                        name="return_date" id="return_date" aria-describedby="helpId" placeholder="return_date">
                 </div>
             </div>
         </div>
+
         <div class="mb-3">
             <label for="status" class="form-label">Status</label>
             <select class="form-select" name="status" id="status">
-                <option disabled>Select one</option>
-                <option {{ $transaction->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
-                <option {{ $transaction->status == 'Berjalan' ? 'selected' : '' }}>Berjalan</option>
-                <option {{ $transaction->status == 'Terlambat' ? 'selected' : '' }}>Terlambat</option>
-                <option {{ $transaction->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                <option value="Menunggu" {{ $transaction->status == 'Menunggu' ? 'selected' : '' }}>Menunggu</option>
+                <option value="Berjalan" {{ $transaction->status == 'Berjalan' ? 'selected' : '' }}>Berjalan</option>
+                <option value="Terlambat" {{ $transaction->status == 'Terlambat' ? 'selected' : '' }}>Terlambat
+                </option>
+                <option value="Selesai" {{ $transaction->status == 'Selesai' ? 'selected' : '' }}>Selesai</option>
             </select>
         </div>
         <div class="text-end">

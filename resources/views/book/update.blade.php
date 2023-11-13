@@ -8,14 +8,15 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Buku <span class="text-primary">{{ $book->title }}</span>
-                </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('books.update', $book->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
+                    <h5 class="modal-title" id="modalTitleId">Buku <span class="text-primary">{{ $book->title }}</span>
+                    </h5>
+                    <p>Kosongkan saja gambar jika tidak menggubah gambar</p>
                     <div class="mb-3">
                         <label for="title" class="form-label">Judul Buku</label>
                         <input type="text" class="form-control" name="title" id="title"
@@ -91,6 +92,19 @@
                                         <option value="{{ $category->id }}"
                                             {{ $book->category->id == $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="mb-3">
+                                <label for="bookshelf_id" class="form-label">Rak Buku</label>
+                                <select class="form-select" name="bookshelf_id" id="bookshelf_id">
+                                    <option selected>Select one</option>
+                                    @foreach ($bookshelves as $bookshelf)
+                                        <option value="{{ $bookshelf->id }}"
+                                            {{ $book->bookshelf->id == $bookshelf->id ? 'selected' : '' }}>
+                                            {{ $bookshelf->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

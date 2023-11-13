@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TransactionRequest extends FormRequest
+class BookshelfRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,8 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'book_id' => 'required|exists:books,id',
-            'user_id' => 'required|exists:users,id',
-            'borrow_date' => 'nullable|date',
-            'return_date' => 'nullable|date|after:borrow_date',
-            'status' => 'required|in:Menunggu,Berjalan,Terlambat,Selesai',
+            'name' => 'required|min:5|max:100|string'
+
         ];
     }
 }

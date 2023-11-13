@@ -13,6 +13,7 @@ class Book extends Model
         'title',
         'image',
         'category_id',
+        'bookshelf_id',
         'isbn',
         'author',
         'year_published',
@@ -23,6 +24,10 @@ class Book extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+    public function bookshelf()
+    {
+        return $this->belongsTo(Bookshelf::class);
     }
 
     /**

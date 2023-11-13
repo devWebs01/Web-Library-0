@@ -1,15 +1,16 @@
 <?php
 
 use App\Http\Controllers\Auth\ProfileController;
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ConfirmationAccountController;
+use App\Http\Controllers\Officer\BookController;
+use App\Http\Controllers\Officer\CategoryController;
+use App\Http\Controllers\Officer\ConfirmationAccountController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\PenaltyController;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\TransactionController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Officer\UserController;
+use App\Http\Controllers\Officer\PenaltyController;
+use App\Http\Controllers\Officer\ReportController;
+use App\Http\Controllers\Officer\TransactionController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\Officer\BookshelfController;
 use App\Models\Book;
 use App\Models\Transaction;
 use App\Models\User;
@@ -55,7 +56,7 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     Route::prefix('users')->group(function () {
         Route::get('/officers', [UserController::class, 'officers'])->name('users.officers');
         Route::get('/members', [UserController::class, 'members'])->name('users.members');
-        
+
         Route::post('/', [UserController::class, 'store'])->name('users.store');
         Route::get('/{slug}/show', [UserController::class, 'show'])->name('users.show');
         Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
@@ -74,6 +75,13 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
         Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
     });
 
+    Route::prefix('bookshelves')->group(function () {
+        Route::get('/', [BookshelfController::class, 'index'])->name('bookshelves.index');
+        Route::post('/', [BookshelfController::class, 'store'])->name('bookshelves.store');
+        Route::put('/{bookshelf}', [BookshelfController::class, 'update'])->name('bookshelves.update');
+        Route::delete('/{bookshelf}', [BookshelfController::class, 'destroy'])->name('bookshelves.destroy');
+    });
+
     Route::prefix('books')->group(function () {
         Route::get('/', [BookController::class, 'index'])->name('books.index');
         Route::post('/', [BookController::class, 'store'])->name('books.store');
@@ -83,7 +91,11 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     });
 
     Route::prefix('transactions')->group(function () {
-        Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
+        Route::get('/waiting', [TransactionController::class, 'waiting'])->name('transactions.waiting');
+        Route::get('/walking', [TransactionController::class, 'walking'])->name('transactions.walking');
+        Route::get('/completed', [TransactionController::class, 'completed'])->name('transactions.completed');
+
+
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
         Route::get('/{id}/show', [TransactionController::class, 'show'])->name('transactions.show');
         Route::put('/{id}', [TransactionController::class, 'update'])->name('transactions.update');
@@ -102,7 +114,11 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
         Route::post('/createAndUpdate', [PenaltyController::class, 'createAndUpdate'])->name('penalties.createAndUpdate');
     });
 
-    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+    Route::prefix('reports')->group(function () {
+        Route::get('/users', [ReportController::class, 'users'])->name('reports.users');
+        Route::get('/books', [ReportController::class, 'books'])->name('reports.books');
+        Route::get('/transactions', [ReportController::class, 'transactions'])->name('reports.transactions');
+    });
 });
 
 Route::middleware(['auth', 'role:Anggota'])->group(function () {

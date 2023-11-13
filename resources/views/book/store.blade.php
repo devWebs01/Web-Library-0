@@ -8,7 +8,7 @@
     <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Buku</h5>
+                <h5 class="modal-title" id="modalTitleId">Tambah Buku</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('books.store') }}" method="post" enctype="multipart/form-data">
@@ -87,6 +87,17 @@
                                     <option selected>Select one</option>
                                     @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="mb-3">
+                                <label for="bookshelf_id" class="form-label">Rak Buku</label>
+                                <select class="form-select" name="bookshelf_id" id="bookshelf_id">
+                                    <option selected>Select one</option>
+                                    @foreach ($bookshelves as $bookshelf)
+                                        <option value="{{ $bookshelf->id }}">{{ $bookshelf->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

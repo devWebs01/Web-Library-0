@@ -1,16 +1,21 @@
 TO DO LIST :
-1. mengelola user dan anggota dipisahkan, menu: anggota, admin, konfirmasi - solved
-2. tambahkan jurusan pada saat mengisi data anggota
-3. tambahkan mengelola data rak buku pada program
-4. petugas bisa mengelola laporan
-5. perbaikan bug saat mau menghapus data buku ('redirect')
-6. berikan pesan peringatan dan pilihan "ya" dan "tidak" saat mau menghapus data ('show-modal')
-7. bagian transaksi perpustakaan dipisahkan menjadi transaksi peminjaman ('menunggu, peminjaman') dan pengembalian ('denda, selesai')
-8. dibagian mengelola data peminjaman ditambahkan fitur edit dan hapus transaksi peminjaman
-9. menu denda digabung saja dengan laporan perpustakaan beserta tambahan laporan buku dan anggota
-10. dibagian laporan peminjaman dan pengembalian tidak perlu kode peminjaman cukup dan tambahkan data jurusan sesudah nama pada laporan transaksi peminjaman dan pengembalian
-11. laporan anggota, buku, transaksi, pada bagian atas laporan ditambahkan logo sekolah dan alamat pada bagian cop surat dan dibawah pojok kanan ditambah penanggung jawab kepala perpustakaan.
-12. tambahkan logo sekolahan pada programnya
+- tambahkan logo sekolahan pada programnya
 
 ISSUE :
-1. rak buku
+-
+
+SOLVED :
+- mengelola user dan anggota dipisahkan, menu: anggota, admin, konfirmasi
+- tambahkan jurusan pada saat mengisi data anggota
+- petugas bisa mengelola laporan
+- perbaikan bug saat mau menghapus data buku ('redirect')
+- tambahkan mengelola data rak buku pada program, rak buku (tambah tabel baru + form select rak buku di form buku)
+- berikan pesan peringatan dan pilihan "ya" dan "tidak" saat mau menghapus data ('show-modal')
+- bagian transaksi perpustakaan dipisahkan menjadi transaksi peminjaman ('menunggu, peminjaman') dan pengembalian ('denda, selesai')
+- dibagian mengelola data peminjaman ditambahkan fitur edit dan hapus transaksi peminjaman
+- menu denda digabung saja dengan laporan perpustakaan beserta tambahan laporan buku dan anggota
+- dibagian laporan peminjaman dan pengembalian tidak perlu kode peminjaman cukup dan tambahkan data jurusan sesudah nama pada laporan transaksi peminjaman dan pengembalian
+- tambahkan modal untuk setiap hapus data (peringatan)
+- laporan anggota, buku, transaksi, pada bagian atas laporan ditambahkan logo sekolah dan alamat pada bagian cop surat dan dibawah pojok kanan ditambah penanggung jawab kepala perpustakaan
+
+
