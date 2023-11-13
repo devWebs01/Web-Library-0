@@ -52,12 +52,8 @@
                                     <div class="d-flex gap-3 align-items-center justify-content-center">
 
                                         @include('user.members.update')
-                                        <form action="{{ route('users.destroy', $user->id) }}" method="post">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-outline-danger btn-sm" type="submit">
-                                                Hapus</button>
-                                        </form>
+                                        @include('user.destroy')
+
                                         <a class="btn btn-outline-primary btn-sm"
                                             href="{{ route('users.show', $user->slug) }}" role="button">Lihat</a>
                                     </div>

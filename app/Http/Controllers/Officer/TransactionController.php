@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Officer;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Book;
 use App\Models\Transaction;
