@@ -97,17 +97,16 @@ class TransactionController extends Controller
         }
     }
 
-    public function confirmation(Request $request, $id)
+    public function confirmation($id)
     {
-        $validate = $request->validate([
-            'status' => 'required|string',
-            'borrow_date' => 'required|date',
-            'return_date' => 'required|date',
-        ]);
 
         $transaction = Transaction::findOrfail($id);
 
-        $transaction->update($validate);
+        $transaction->update([
+            'status' => 'Berjalan',
+            'borrow_date' => Carbon::now()->format('Y-m-d'),
+            'return_date' => Carbon::now()->addDay(7)->format('Y-m-d'),
+        ]);
 
         return back()->with('success', 'Proses penambahan data peminjaman dan pengembalian buku berhasil telah berhasil dilakukan.');
     }

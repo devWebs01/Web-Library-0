@@ -46,15 +46,16 @@
                                     <div class="d-flex gap-2">
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('transactions.show', $item->id) }}" role="button">lihat</a>
-                                        <form action="{{ route('transactions.finished', $item->id) }}" method="post">
+                                        <form action="{{ route('transactions.reject', $item->id) }}" method="post">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit" class="btn btn-success btn-sm">Selesai</button>
+                                            <button type="submit" class="btn btn-danger btn-sm">Tolak</button>
                                         </form>
-                                        <form action="{{ route('transactions.extratime', $item->id) }}" method="post">
+                                        <form action="{{ route('transactions.confirmation', $item->id) }}"
+                                            method="post">
                                             @csrf
                                             @method('PUT')
-                                            <button type="submit" class="btn btn-warning btn-sm">Perpanjang</button>
+                                            <button type="submit" class="btn btn-success btn-sm">Konfirmasi</button>
                                         </form>
                                     </div>
                                 </td>

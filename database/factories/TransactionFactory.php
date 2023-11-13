@@ -22,8 +22,8 @@ class TransactionFactory extends Factory
             'code' => Str::random(20),
             'book_id' => Book::all()->random(),
             'user_id' => User::all()->random(),
-            'borrow_date' => $now->addDays(7),
-            'return_date' => $now->addDays(14),
+            'borrow_date' => $now->addDays(7)->format('Y-m-d'),
+            'return_date' => $now->addDays(14)->format('Y-m-d'),
             'status' => $this->faker->randomElement(['Menunggu', 'Berjalan', 'Terlambat'])
         ];
     }
