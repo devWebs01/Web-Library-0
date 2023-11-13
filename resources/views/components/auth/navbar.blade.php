@@ -66,7 +66,7 @@
     </li>
 
     {{-- Menunggu konfirmasi & peminjaman  --}}
-    <li class="menu-item {{ request()->is(['transactions/borrow', 'waiting']) ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is(['transactions/waiting', 'transactions/walking']) ? 'active' : '' }}">
         <a class="menu-link menu-toggle">
             <i class="menu-icon tf-icons mdi mdi-sync-circle"></i>
             <div data-i18n="borrow">Peminjaman</div>
@@ -76,7 +76,7 @@
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
-                <a href="{{ route('transactions.borrow') }}" class="menu-link">
+                <a href="{{ route('transactions.waiting') }}" class="menu-link">
                     <div data-i18n="Data-User">Konfirmasi</div>
                     <div class="badge bg-danger rounded-pill ms-auto {{ $waiting == null ? 'd-none' : '' }}">
                         {{ $waiting }}
@@ -86,25 +86,25 @@
         </ul>
         <ul class="menu-sub">
             <li class="menu-item">
-                <a href="{{ route('transactions.borrow') }}" class="menu-link">
-                    <div data-i18n="Data-User">Buku DIpinjam</div>
+                <a href="{{ route('transactions.walking') }}" class="menu-link">
+                    <div data-i18n="Data-User">Buku Dipinjam</div>
+                    <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
+                        {{ $late_days }}
+                    </div>
                 </a>
             </li>
         </ul>
     </li>
 
     {{-- Pengembalian & Denda --}}
-    <li class="menu-item {{ request()->is(['transactions/return', 'penalties']) ? 'active' : '' }}">
+    <li class="menu-item {{ request()->is(['transactions/completed', 'penalties']) ? 'active' : '' }}">
         <a class="menu-link menu-toggle">
             <i class="menu-icon tf-icons mdi mdi-sync"></i>
             <div data-i18n="return">Pengembalian</div>
-            <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
-                {{ $late_days }}
-            </div>
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
-                <a href="{{ route('transactions.return') }}" class="menu-link">
+                <a href="{{ route('transactions.completed') }}" class="menu-link">
                     <div data-i18n="Data-User">Buku Kembali</div>
                 </a>
             </li>
@@ -129,11 +129,24 @@
         </a>
         <ul class="menu-sub">
             <li class="menu-item">
-                <a href="/reports" class="menu-link">
-                    <div data-i18n="Data-User">Admin</div>
+                <a href="{{ route('reports.users') }}" class="menu-link">
+                    <div data-i18n="Data-User">User</div>
                 </a>
             </li>
-
+        </ul>
+        <ul class="menu-sub">
+            <li class="menu-item">
+                <a href="{{ route('reports.books') }}" class="menu-link">
+                    <div data-i18n="Data-User">Buku</div>
+                </a>
+            </li>
+        </ul>
+        <ul class="menu-sub">
+            <li class="menu-item">
+                <a href="{{ route('reports.transactions') }}" class="menu-link">
+                    <div data-i18n="Data-User">Transaksi</div>
+                </a>
+            </li>
         </ul>
     </li>
 

@@ -91,8 +91,9 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     });
 
     Route::prefix('transactions')->group(function () {
-        Route::get('/borrow', [TransactionController::class, 'borrow'])->name('transactions.borrow');
-        Route::get('/return', [TransactionController::class, 'return'])->name('transactions.return');
+        Route::get('/waiting', [TransactionController::class, 'waiting'])->name('transactions.waiting');
+        Route::get('/walking', [TransactionController::class, 'walking'])->name('transactions.walking');
+        Route::get('/completed', [TransactionController::class, 'completed'])->name('transactions.completed');
 
 
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
@@ -113,7 +114,11 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
         Route::post('/createAndUpdate', [PenaltyController::class, 'createAndUpdate'])->name('penalties.createAndUpdate');
     });
 
-    Route::get('/reports', [ReportController::class, 'index'])->name('reports');
+    Route::prefix('reports')->group(function () {
+        Route::get('/users', [ReportController::class, 'users'])->name('reports.users');
+        Route::get('/books', [ReportController::class, 'books'])->name('reports.books');
+        Route::get('/transactions', [ReportController::class, 'transactions'])->name('reports.transactions');
+    });
 });
 
 Route::middleware(['auth', 'role:Anggota'])->group(function () {
