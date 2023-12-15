@@ -32,6 +32,7 @@
         table.dataTable tbody th,
         table.dataTable tbody td {
             text-align: center;
+            white-space: nowrap;
         }
 
         /* mode dark */
@@ -67,10 +68,14 @@
 @endpush
 
 @push('js')
-    $('#example').DataTable( {
+    $('#example').DataTable({
     dom: 'QBfrtip',
     buttons: [
-    'excel', 'pdf', 'print'
+    'excel', {
+    extend: 'print',
+    messageTop: '<p>Dokumen ini dicetak oleh: ' + '{{ Auth::user()->name }}' + '</p>'+'<p>Pada tanggal: ' +
+        '{{ Carbon\carbon::now() }}' + '</p>',
+    }
     ]
-    } );
+    });
 @endpush

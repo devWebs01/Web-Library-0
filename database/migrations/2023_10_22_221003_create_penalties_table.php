@@ -19,6 +19,8 @@ class CreatePenaltiesTable extends Migration
             $table->string('amount');
             $table->string('lates_day');
             $table->dateTime('payment_date');
+            $table->date('borrow_date');
+            $table->date('return_date');
             $table->timestamps();
         });
     }

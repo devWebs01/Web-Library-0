@@ -28,6 +28,8 @@ class PenaltyRequest extends FormRequest
             'amount' => 'required|numeric',
             'lates_day' => 'required|string',
             'payment_date' => 'required|date',
+            'borrow_date' => 'required|date',
+            'return_date' => 'required|date',
         ];
     }
 }

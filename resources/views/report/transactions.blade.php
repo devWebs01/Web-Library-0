@@ -1,13 +1,13 @@
 <x-auth.layout>
-    <x-slot name="title">Transaction Library Report</x-slot>
+    <x-slot name="title">Laporan Transaksi Perpustakaan</x-slot>
     @include('layouts.report')
     <div class="card">
         <div class="card-body table-responsive">
             <table id="example" class="display" style="width:100%">
                 <thead>
+
                     <tr>
-                        <th>NO</th>
-                        <th>Kode</th>
+                        <th>No.</th>
                         <th>Nama</th>
                         <th>Buku</th>
                         <th>Tanggal Pinjam</th>
@@ -21,9 +21,8 @@
                     @foreach ($transactions as $no => $transaction)
                         <tr>
                             <td>{{ ++$no }}</td>
-                            <td>{{ $transaction->code }}</td>
                             <td>{{ $transaction->user->name }}</td>
-                            <td>{{ $transaction->book->title }}</td>
+                            <td>{{ Str::limit($transaction->book->title, 45, '...') }}</td>
                             <td>{{ $transaction->borrow_date }}</td>
                             <td>{{ $transaction->return_date }}</td>
                             <td>{{ $transaction->status }}</td>
