@@ -73,7 +73,7 @@
                             </li>
                             <li class="mb-3">
                                 <span class="fw-medium me-2">Telp:</span>
-                                <span>{{ $transaction->user->telp }}</span>
+                                <span>+62{{ $transaction->user->telp }}</span>
                             </li>
                             <li class="mb-3">
                                 <span class="fw-medium me-2">NIS/Etc.:</span>
@@ -107,7 +107,7 @@
                             </li>
                             <li class="mb-3">
                                 <span class="fw-medium me-2">Telp:</span>
-                                <span>{{ $transaction->user->telp }}</span>
+                                <span>+62{{ $transaction->user->telp }}</span>
                             </li>
                             <li class="mb-3">
                                 <span class="fw-medium me-2">NIS/Etc.:</span>

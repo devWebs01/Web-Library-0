@@ -20,7 +20,7 @@ class UserFactory extends Factory
             'email' => $this->faker->unique()->email(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'slug' => $this->faker->unique()->slug(),
-            'telp' => '628' . $this->faker->unique()->ean8(),
+            'telp' => '812' . $this->faker->unique()->ean8(),
             'role' => $this->faker->randomElement(['Petugas', 'Anggota', 'Kepala']),
             'majors' => $this->faker->randomElement(['IPA', 'IPS', null]),
             'birthdate' => $this->faker->date(),

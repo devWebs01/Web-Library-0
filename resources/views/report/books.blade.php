@@ -8,10 +8,9 @@
                     <tr>
                         <th>No.</th>
                         <th>Judul</th>
-                        <th>image</th>
                         <th>Kategori</th>
                         <th>Rak Buku</th>
-                        <th>isbn</th>
+                        <th>ISBN</th>
                         <th>Penulis</th>
                         <th>Tahun Publis</th>
                         <th>Penerbit</th>
@@ -22,17 +21,13 @@
                     @foreach ($books as $no => $book)
                         <tr>
                             <td>{{ ++$no }}.</td>
-                            <td>{{ $book->title }}</td>
-                            <td>
-                                <img src="{{ Storage::url($book->image) }}" class="object-fit-cover rounded-circle"
-                                    width="50" height="50" alt="img-cover">
-                            </td>
-                            <td>{{ $book->category->name }}</td>
+                            <td>{{ Str::limit($book->title, 30, '...') }}</td>
+                            <td>{{ Str::limit($book->category->name, 20, '...') }}</td>
                             <td>{{ $book->bookshelf->name }}</td>
                             <td>{{ $book->isbn }}</td>
-                            <td>{{ $book->author }}</td>
+                            <td>{{ Str::limit($book->author, 20, '...') }}</td>
                             <td>{{ $book->year_published }}</td>
-                            <td>{{ $book->publisher }}</td>
+                            <td>{{ Str::limit($book->publisher, 30, '...') }}</td>
                             <td>{{ $book->book_count }}</td>
                         </tr>
                     @endforeach

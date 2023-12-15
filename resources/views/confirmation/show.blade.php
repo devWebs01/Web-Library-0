@@ -32,7 +32,7 @@
                                 <span class="fw-bold">Email: </span> {{ $user->email }}
                             </li>
                             <li>
-                                <span class="fw-bold">Telp: </span> {{ $user->telp }}
+                                <span class="fw-bold">Telp: </span>+62 {{ $user->telp }}
                             </li>
                             <li>
                                 <span class="fw-bold">Jenis Kelamin: </span> {{ $user->gender }}

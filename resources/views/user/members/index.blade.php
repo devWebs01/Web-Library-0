@@ -47,7 +47,7 @@
                                 <td>
                                     <span class="badge bg-primary">{{ $user->role }}</span>
                                 </td>
-                                <td>{{ $user->telp }}</td>
+                                <td>+62{{ $user->telp }}</td>
                                 <td>
                                     <div class="d-flex gap-3 align-items-center justify-content-center">
 

@@ -28,7 +28,7 @@
                             <h5 class="card-header">Biodata Anggota</h5>
                             <div class="card-body text-start">
                                 <p class="card-text">Nama : {{ $penalty->transaction->user->name }}</p>
-                                <p class="card-text">Telp : {{ $penalty->transaction->user->telp }}</p>
+                                <p class="card-text">Telp : +62{{ $penalty->transaction->user->telp }}</p>
                                 <p class="card-text">NIS/Etc. : {{ $penalty->transaction->user->identify }}</p>
                                 <p class="card-text">Jenis Kelamin : {{ $penalty->transaction->user->gender }}</p>
                             </div>

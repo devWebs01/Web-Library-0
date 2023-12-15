@@ -28,7 +28,7 @@ class UserRequest extends FormRequest
             'email' => 'required|string|email|max:50|unique:users,email,' . $this->id,
             'identify' => 'required|numeric|digits_between:8,30|unique:users,identify,' . $this->id,
             'gender'  => 'required|in:Laki-laki,Perempuan',
-            'telp' => 'required|numeric|digits_between:11,12',
+            'telp' => 'required|numeric|digits_between:10,11',
             'role' => 'required|in:Petugas,Anggota,Kepala',
             'birthdate' => 'required|date',
             'majors' => 'nullable'

@@ -49,17 +49,21 @@
                     </div>
                     <div class="row">
                         <div class="col-md">
-                            <div class="form-floating form-floating-outline mb-3">
-                                <input type="number" class="form-control @error('telp') is-invalid @enderror"
-                                    name="telp" value="{{ old('telp') }}" id="telp"
-                                    placeholder="Enter your telp" autofocus />
-                                <label for="telp">Telp</label>
-                                @error('telp')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                            <div class="input-group input-group-merge">
+                                <span
+                                    class="input-group-text @error('telp') bg-danger text-white border-danger @enderror">+62</span>
+                                <div class="form-floating form-floating-outline">
+                                    <input type="number" class="form-control @error('telp') is-invalid @enderror"
+                                        name="telp" value="{{ old('telp') }}" id="telp"
+                                        placeholder="852XXXXXX" autofocus />
+                                    <label for="telp">Telp</label>
+                                </div>
                             </div>
+                            @error('telp')
+                                <small class="fw-bold text-danger" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </small>
+                            @enderror
                         </div>
                         <div class="col-md">
                             <div class="form-floating form-floating-outline mb-3">

@@ -7,10 +7,10 @@
                 <thead>
                     <tr>
                         <th>No.</th>
-                        <th>name</th>
-                        <th>email</th>
-                        <th>telp</th>
-                        <th>role</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Telp</th>
+                        <th>Role</th>
                         <th>Jurusan</th>
                         <th>Tanggal Lahir</th>
                         <th>Jenis Kelamin</th>
@@ -23,7 +23,7 @@
                             <td>{{ ++$no }}.</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>{{ $user->telp }}</td>
+                            <td>+62{{ $user->telp }}</td>
                             <td>{{ $user->role }}</td>
                             <td>{{ $user->majors ?? '-' }}</td>
                             <td>{{ $user->birthdate }}</td>
