@@ -74,7 +74,7 @@
                 <form action="{{ route('users.destroy', $user->id) }}" method="post">
                     @csrf
                     @method('delete')
-                    <button type="submit" class="btn btn-danger">Tolak</button>
+                    <button type="submit" class="btn btn-danger">OKE</button>
                 </form>
             </div>
         </div>
@@ -99,7 +99,7 @@
                 <form action="{{ route('confirmations.accept', $user->id) }}" method="post">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-success">Terima</button>
+                    <button type="submit" class="btn btn-success">OKE</button>
                 </form>
             </div>
         </div>
