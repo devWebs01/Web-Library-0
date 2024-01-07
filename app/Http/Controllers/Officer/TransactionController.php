@@ -47,7 +47,9 @@ class TransactionController extends Controller
     public function completed()
     {
         $completed = Transaction::where('status', 'Selesai')
-            ->orderBy('updated_at', 'DESC')
+            ->orWhere('status', 'Berjalan')
+            ->orWhere('status', 'Terlambat')
+            ->orderBy('updated_at', 'ASC')
             ->get();
 
         $borrow_date = Carbon::now()->format('Y-m-d');
@@ -93,7 +95,7 @@ class TransactionController extends Controller
 
             Transaction::create($validate);
 
-            return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+            return redirect()->route('transactions.completed')->with('success', 'Proses penambahan data telah berhasil dilakukan.');
         }
     }
 
@@ -123,7 +125,7 @@ class TransactionController extends Controller
         $book->book_count++;
         $book->save();
 
-        return back()->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
+        return redirect()->route('transactions.completed')->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
     }
 
     public function reject($id)

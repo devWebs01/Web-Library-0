@@ -9,7 +9,7 @@
                     aria-expanded="false" aria-controls="collapseExample">
                     Edit
                 </button>
-               @include('transaction.destroy')
+                @include('transaction.destroy')
             </div>
 
             <div class="collapse mb-3" id="collapseExample">
@@ -91,35 +91,39 @@
                     </div>
 
                     <div class="info-container">
-                        <small class="d-block pt-4 border-top text-muted my-3">DETAIL USER</small>
+                        <small class="d-block pt-4 border-top text-muted my-3">DETAIL BUKU</small>
                         <ul class="list-unstyled">
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Nama:</span>
-                                <span>{{ $transaction->user->name }}</span>
+                                <span class="fw-medium me-2">Judul:</span>
+                                <span>{{ $transaction->book->title }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Email:</span>
-                                <span>{{ $transaction->user->email }}</span>
+                                <span class="fw-medium me-2">Kategori:</span>
+                                <span>{{ $transaction->book->category->name }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Role:</span>
-                                <span class="badge bg-label-success">{{ $transaction->user->role }}</span>
+                                <span class="fw-medium me-2">Rak Buku:</span>
+                                <span>{{ $transaction->book->bookshelf->name }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Telp:</span>
-                                <span>+62{{ $transaction->user->telp }}</span>
+                                <span class="fw-medium me-2">ISBN:</span>
+                                <span>+62{{ $transaction->book->isbn }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">NIS/Etc.:</span>
-                                <span>{{ $transaction->user->identify }}</span>
+                                <span class="fw-medium me-2">Penulis:</span>
+                                <span>{{ $transaction->book->author }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Jenis Kelamin:</span>
-                                <span>{{ $transaction->user->gender }}</span>
+                                <span class="fw-medium me-2">Tahun Terbit:</span>
+                                <span>{{ $transaction->book->year_published }}</span>
                             </li>
                             <li class="mb-3">
-                                <span class="fw-medium me-2">Tgl. Lahir:</span>
-                                <span>{{ $transaction->user->birthdate }}</span>
+                                <span class="fw-medium me-2">Penerbit:</span>
+                                <span>{{ $transaction->book->publisher }}</span>
+                            </li>
+                            <li class="mb-3">
+                                <span class="fw-medium me-2">Jumlah Buku Saat Ini:</span>
+                                <span>{{ $transaction->book->book_count }}</span>
                             </li>
                         </ul>
                     </div>

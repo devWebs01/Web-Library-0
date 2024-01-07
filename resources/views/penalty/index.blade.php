@@ -16,10 +16,10 @@
                                     <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
                                 </li>
                             @empty
-                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                            class="avatar pull-up" aria-label="0" data-bs-original-title="0">
-                            <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
-                        </li>
+                                <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
+                                    class="avatar pull-up" aria-label="0" data-bs-original-title="0">
+                                    <img class="rounded-circle" src="/assets/img/avatars/6.png" alt="Avatar">
+                                </li>
                             @endforelse
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
                             <h5 class="mb-1">Total Terlambat</h5>
                         </div>
                         @if ($dont_payment)
-                            <a href="{{ route('transactions.walking') }}">Lihat</a>
+                            <a href="{{ route('transactions.completed') }}">Lihat</a>
                         @endforelse
                     </div>
                 </div>

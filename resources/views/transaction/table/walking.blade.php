@@ -27,7 +27,7 @@
     </div>
 
 
-    <div class="card">
+    {{-- <div class="card">
         <h5 class="card-header">
             Peminjaman Buku
         </h5>
@@ -49,7 +49,8 @@
                             <tr>
                                 <td>{{ ++$no }}.</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
-                                <td><span
+                                <td>
+                                    <span
                                         class="badge bg-{{ $item->status == 'Terlambat' ? 'danger' : 'primary' }}">{{ $item->status }}</span>
                                 </td>
                                 <td>{{ $item->borrow_date ?? '-' }}</td>
@@ -61,6 +62,7 @@
                                         @if ($item->status == 'Terlambat')
                                             <a class="btn btn-danger btn-sm"
                                                 href="{{ route('penalties.show', $item->id) }}" role="button">Bayar</a>
+                                            @include('transaction.wa_link')
                                         @else
                                             <form action="{{ route('transactions.finished', $item->id) }}"
                                                 method="post">
@@ -84,5 +86,5 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-auth.layout>

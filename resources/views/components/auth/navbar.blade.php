@@ -87,10 +87,7 @@
         <ul class="menu-sub">
             <li class="menu-item">
                 <a href="{{ route('transactions.walking') }}" class="menu-link">
-                    <div data-i18n="Data-User">Buku Dipinjam</div>
-                    <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
-                        {{ $late_days }}
-                    </div>
+                    <div data-i18n="Data-User">Pinjam Buku</div>
                 </a>
             </li>
         </ul>
@@ -106,6 +103,9 @@
             <li class="menu-item">
                 <a href="{{ route('transactions.completed') }}" class="menu-link">
                     <div data-i18n="Data-User">Buku Kembali</div>
+                    <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">
+                        {{ $late_days }}
+                    </div>
                 </a>
             </li>
         </ul>
