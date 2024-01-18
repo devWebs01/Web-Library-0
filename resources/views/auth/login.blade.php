@@ -25,8 +25,10 @@
                     <!-- /Logo -->
 
                     <div class="card-body mt-2">
-                        <h4 class="mb-2">Welcome to Users! 👋</h4>
-                        <p class="mb-4">Please sign-in to your account and start the adventure</p>
+                        <a href="/" class="text-center">Home</a>
+                        <h4 class="mb-2">Selamat datang kembali! 👋</h4>
+                        <p class="mb-4">Silakan masuk ke akun perpustakaan Anda untuk mengakses koleksi buku yang
+                            menarik.</p>
 
                         <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('login') }}">
                             @csrf
@@ -62,22 +64,22 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="mb-3 d-flex justify-content-between">
+                            {{-- <div class="mb-3 d-flex justify-content-between">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }} />
                                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="mb-3">
-                                <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                                <button class="btn btn-primary d-grid w-100" type="submit">Masuk</button>
                             </div>
                         </form>
 
                         <p class="text-center">
-                            <span>New on our platform?</span>
+                            <span>Belum punya akun?</span>
                             <a href="/register">
-                                <span>Create an account</span>
+                                <span>Buat akun baru</span>
                             </a>
                         </p>
                     </div>

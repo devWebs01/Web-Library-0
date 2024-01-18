@@ -36,8 +36,9 @@
                     </div>
                     <!-- /Logo -->
                     <div class="card-body mt-2">
-                        <h4 class="mb-2">Adventure starts here 🚀</h4>
-                        <p class="mb-4">Make your app management easy and fun!</p>
+                        <h4 class="mb-2">Jadi Anggota Sekarang 🚀</h4>
+                        <p class="mb-4">Daftar akun perpustakaan sekarang
+                            dan mulailah petualangan literasi Anda.</p>
 
                         <form id="formAuthentication" class="mb-3" action="{{ route('register') }}" method="POST">
                             @csrf
@@ -110,12 +111,13 @@
                             <div class="row">
                                 <div class="col-md mb-3">
                                     <div class="input-group input-group-merge">
-                                        <span class="input-group-text @error('telp') bg-danger text-white border-danger @enderror">+62</span>
+                                        <span
+                                            class="input-group-text @error('telp') bg-danger text-white border-danger @enderror">+62</span>
                                         <div class="form-floating form-floating-outline">
                                             <input type="number"
-                                                class="form-control @error('telp') is-invalid @enderror"
-                                                name="telp" value="{{ old('telp') }}" id="telp"
-                                                placeholder="852XXXXXX" autofocus />
+                                                class="form-control @error('telp') is-invalid @enderror" name="telp"
+                                                value="{{ old('telp') }}" id="telp" placeholder="852XXXXXX"
+                                                autofocus />
                                             <label for="telp">Telp</label>
                                         </div>
                                     </div>
@@ -192,18 +194,18 @@
                                     <input class="form-check-input" type="checkbox" id="terms-conditions"
                                         name="terms" required />
                                     <label class="form-check-label" for="terms-conditions">
-                                        I agree to
-                                        <a href="javascript:void(0);">privacy policy & terms</a>
+                                        Saya menyetujui
+                                        <a href="javascript:void(0);">kebijakan & ketentuan perpustakaan</a>
                                     </label>
                                 </div>
                             </div>
-                            <button class="btn btn-primary d-grid w-100">Sign up</button>
+                            <button class="btn btn-primary d-grid w-100">Daftar</button>
                         </form>
 
                         <p class="text-center">
-                            <span>Already have an account?</span>
+                            <span>Sudah punya akun?</span>
                             <a href="/login">
-                                <span>Sign in instead</span>
+                                <span>Masuk Sekarang</span>
                             </a>
                         </p>
                     </div>

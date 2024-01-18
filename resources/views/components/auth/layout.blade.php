@@ -121,7 +121,7 @@
                                     <li>
                                         <a class="dropdown-item" href="{{ route('profile', Auth()->user()->slug) }}">
                                             <i class="mdi mdi-account-outline me-1 mdi-20px"></i>
-                                            <span class="align-middle">My Profile</span>
+                                            <span class="align-middle">Profil Saya</span>
                                         </a>
                                     </li>
                                     <li>
@@ -197,17 +197,7 @@
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    , made with <span class="text-danger"><i
-                                            class="tf-icons mdi mdi-heart"></i></span> by
-                                    <a href="https://themeselection.com" target="_blank"
-                                        class="footer-link fw-medium">ThemeSelection</a>
-                                </div>
-                                <div class="d-none d-lg-inline-block">
-                                    <a href="https://demos.themeselection.com/materio-bootstrap-html-admin-template/documentation/"
-                                        target="_blank" class="footer-link me-3">Documentation</a>
-
-                                    <a href="https://github.com/themeselection/materio-bootstrap-html-admin-template-free/issues"
-                                        target="_blank" class="footer-link me-3">Support</a>
+                                    , Made with ❤️ for SMK - PP NNegeri Jambi
                                 </div>
                             </div>
                         </div>

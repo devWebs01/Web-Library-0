@@ -24,7 +24,7 @@
             </div>
         </div>
     </section>
-    <section class="bg-light py-4" id="discover">
+    <section class="py-4" id="discover">
         <div class="container py-lg-7">
             <h1 class="fw-bold text-center text-primary">Sistem Informasi Perpustakaan <br> Dirancang
                 Dengan Fitur
@@ -36,8 +36,10 @@
                         <div editable="rich">
                             <i class="mdi mdi-book-clock-outline mdi-48px"></i>
                             <h2 class="h4">Pesan Peminjaman Buku</h2>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
-                                lacus est, rtiam diam metus.&nbsp;<br></p>
+                            <p class="lead">
+                                Pesan buku secara online dan ambil di Perpustakaan tanpa antrian panjang.
+                                <br>
+                            </p>
                         </div>
                     </div>
                 </div><!-- /col -->
@@ -46,8 +48,8 @@
                         <div editable="rich">
                             <i class="mdi mdi-book-sync mdi-48px"></i>
                             <h2 class="h4">Peminjaman dan Pengembalian Buku</h2>
-                            <p class="lead"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
-                                lacus est, rtiam diam metus
+                            <p class="lead">
+                                Temukan kemudahan dalam peminjaman dan pengembalian buku dengan akses cepat ke koleksi.
                             </p>
                         </div>
                     </div>
@@ -57,8 +59,8 @@
                         <div editable="rich">
                             <i class="mdi mdi-abacus mdi-48px"></i>
                             <h2 class="h4">Denda Otomatis</h2>
-                            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a
-                                lacus est, rtiam diam metus.&nbsp;<br></p>
+                            <p class="lead">Nikmati layanan tanpa denda tambahan dan kenyamanan dalam pengelolaan
+                                pinjaman Anda.</p>
                         </div>
                     </div>
                 </div><!-- /col -->
@@ -100,17 +102,6 @@
         </div>
     </section>
 
-    <div class="container-fluid py-5 bg-light text-dark text-center">
-        <div class="row justify-content-center">
-            <div class="lc-block col-xl-8">
-                <h3 editable="inline" class="fw-bold fst-italic">Jadilah anak muda yang Produktif, sehingga nanti bisa
-                    menjadi pribadi yang Profesional, yaitu dengan tidak melupakan dua hal IMAN dan TAKWA.</h3>
-                <p class="fst-italic text-primary">BJ. Habibie</p>
-            </div><!-- /lc-block -->
-        </div>
-    </div>
-
-
     <section class="py-6 py-md-0">
         <div class="container py-md-6">
             <div class="row align-items-center">
@@ -146,4 +137,14 @@
             </div>
         </div>
     </section>
+
+    <div class="container-fluid py-5 text-dark text-center">
+        <div class="row justify-content-center">
+            <div class="lc-block col-xl-8">
+                <h3 editable="inline" class="fw-bold fst-italic">"Jadilah anak muda yang Produktif, sehingga nanti bisa
+                    menjadi pribadi yang Profesional, yaitu dengan tidak melupakan dua hal IMAN dan TAKWA."</h3>
+                <p class="fst-italic text-primary">BJ. Habibie</p>
+            </div><!-- /lc-block -->
+        </div>
+    </div>
 </x-guest.layout>
