@@ -8,13 +8,13 @@ pak imam :
 
 buk eris :
 -tombol perpanjang dihapus, kembalikan tombol hubungi ✅
--form tambah peminjaman mencari nama anggota dan buku bisa di search ketik
--konfirmasi booking buku di buat seperti konfirmasi akun, hapus dan edit dihilangkan
--tombol hapus dan edit di halaman pemijaman dibuat diluar tombol halaman "lihat"
--menu denda ubah jadi laporan denda
--tambahkan logo sekolah pada program (minimal didalam cetak laporan)
--pada laporan tambahkan logo sekolah, alamat sekolah dan pada bagian bawah tambahkan penanggung jawab(kepala perpustakaan)
--bug lihat detail user di halaman peminjaman ada 2
+-form tambah peminjaman mencari nama anggota dan buku bisa di search ketik ✅
+-konfirmasi booking buku di buat seperti konfirmasi akun, hapus dan edit dihilangkan ✅
+-tombol hapus dan edit di halaman pemijaman dibuat diluar tombol halaman "lihat" ✅
+-menu denda ubah jadi laporan denda ✅
+-tambahkan logo sekolah pada program (minimal didalam cetak laporan) ✅
+-pada laporan tambahkan logo sekolah, alamat sekolah dan pada bagian bawah tambahkan penanggung jawab(kepala perpustakaan) ✅
+-bug lihat detail user di halaman peminjaman ada 2 ✅
 -bug akun belum dikonfirmasi tapi muncul ditambah peminjaman
 -bug lihat detail petugas dan kepala ada jurusan dan status anggota
 -bug tombol batal di hapus buku tidak berfungsi

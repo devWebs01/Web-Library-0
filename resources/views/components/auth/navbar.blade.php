@@ -14,11 +14,23 @@
             </a>
         </li>
     @else
-        <li class="menu-item {{ request()->is('/users/members') ? 'active' : '' }}">
-            <a href="{{ route('users.members') }}" class="menu-link">
+        <li class="menu-item {{ request()->is(['users/members', 'confirmations/index']) ? 'active' : '' }}">
+            <a class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons mdi mdi-human"></i>
-                <div data-i18n="Anggota">Anggota</div>
+                <div data-i18n="Users">Manajemen Anggota</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('users.members') }}" class="menu-link">
+                        <div data-i18n="members">Data Anggota</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('confirmations.index') }}" class="menu-link">
+                        <div data-i18n="confirmations">Konfirmasi Anggota</div>
+                    </a>
+                </li>
+            </ul>
         </li>
 
         <li class="menu-item {{ request()->is(['categoires', 'books']) ? 'active' : '' }}">
@@ -65,7 +77,7 @@
             </ul>
             <ul class="menu-sub">
                 <li class="menu-item">
-                    <a href="{{ route('transactions.walking') }}" class="menu-link">
+                    <a href="{{ route('transactions.create') }}" class="menu-link">
                         <div data-i18n="Data-User">Pinjam Buku</div>
                     </a>
                 </li>

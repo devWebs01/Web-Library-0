@@ -57,7 +57,7 @@ class CatalogController extends Controller
 
             $user = User::findOrFail($request->user_id);
 
-            $validate['code'] = $user->slug . '-' . Str::random(10);
+            $validate['code'] = Str::random(10);
 
             $transaction = Transaction::create($validate);
 

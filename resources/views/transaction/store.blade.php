@@ -6,8 +6,8 @@
             <div class="col-md">
                 <div class="mb-3">
                     <label for="user_id" class="form-label">Nama Lengkap</label>
-                    <select class="form-select" name="user_id" id="user_id">
-                        <option selected>Select one</option>
+                    <select id="select-beast" name="user_id" placeholder="Select a person..." autocomplete="off">
+                        <option value="">Select a person...</option>
                         @foreach ($users as $user)
                             <option value="{{ $user->id }}">- {{ $user->name }}</option>
                         @endforeach
@@ -17,8 +17,8 @@
             <div class="col-md">
                 <div class="mb-3">
                     <label for="book_id" class="form-label">Buku</label>
-                    <select class="form-select" name="book_id" id="book_id">
-                        <option selected>Select one</option>
+                    <select name="book_id" id="book_id">
+                        <option value="">Select an book...</option>
                         @foreach ($books as $book)
                             <option
                                 class="text-truncate
@@ -27,6 +27,7 @@
                                 {{ $book->title }} : {{ $book->book_count }}</option>
                         @endforeach
                     </select>
+
                 </div>
             </div>
         </div>

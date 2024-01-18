@@ -20,11 +20,11 @@ class TransactionController extends Controller
             ->get();
 
 
-        return view('transaction.table.waiting', [
+        return view('booking.index', [
             'waiting' => $waiting,
         ]);
     }
-    public function walking()
+    public function create()
     {
         $walking = Transaction::whereIn('status', ['Berjalan', 'Terlambat'])
             ->orderBy('updated_at', 'DESC')
@@ -36,7 +36,7 @@ class TransactionController extends Controller
         $users = User::whereRole('Anggota')->select('id', 'name')->get();
         $books = Book::get();
 
-        return view('transaction.table.walking', [
+        return view('transaction.create', [
             'walking' => $walking,
             'borrow_date' => $borrow_date,
             'return_date' => $return_date,
@@ -200,6 +200,6 @@ class TransactionController extends Controller
 
         $transaction->delete();
 
-        return redirect()->route('transactions.walking')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
+        return redirect()->route('transactions.create')->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
     }
 }
