@@ -28,7 +28,11 @@ class Navbar extends Component
         return view('components.auth.navbar', [
             'pending' => User::whereNull('email_verified_at')->count(),
             'waiting' => Transaction::where('status', 'Menunggu')->count(),
-            'late_days' => Transaction::where('status', 'Terlambat')->count()
+            'late_days' => Transaction::where('return_date', '<=', now())
+                ->where('status', '!=', 'Selesai')
+                ->where('status', '!=', 'Tolak')
+                ->where('status', '!=', 'Menunggu')
+                ->count()
         ]);
     }
 }

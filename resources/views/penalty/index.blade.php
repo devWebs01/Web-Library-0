@@ -1,6 +1,6 @@
 <x-auth.layout>
     <x-slot name="title">Penalties</x-slot>
-    @include('layouts.table')
+    @include('layouts.report')
 
     <div class="row mb-3 gy-3">
         <div class="col-md">

@@ -49,7 +49,8 @@ class TransactionController extends Controller
         $completed = Transaction::where('status', 'Selesai')
             ->orWhere('status', 'Berjalan')
             ->orWhere('status', 'Terlambat')
-            ->orderBy('updated_at', 'ASC')
+            ->orderBy('status', 'ASC')
+            ->latest()
             ->get();
 
         $borrow_date = Carbon::now()->format('Y-m-d');

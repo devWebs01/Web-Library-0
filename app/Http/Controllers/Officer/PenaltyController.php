@@ -14,7 +14,7 @@ class PenaltyController extends Controller
 {
     public function index()
     {
-        $penalties = Penalty::get();
+        $penalties = Penalty::latest()->get();
         $total = 0;
 
         foreach ($penalties as $penalty) {
