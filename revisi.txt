@@ -15,8 +15,8 @@ buk eris :
 -tambahkan logo sekolah pada program (minimal didalam cetak laporan) ✅
 -pada laporan tambahkan logo sekolah, alamat sekolah dan pada bagian bawah tambahkan penanggung jawab(kepala perpustakaan) ✅
 -bug lihat detail user di halaman peminjaman ada 2 ✅
--bug akun belum dikonfirmasi tapi muncul ditambah peminjaman
--bug lihat detail petugas dan kepala ada jurusan dan status anggota
+-bug akun belum dikonfirmasi tapi muncul ditambah peminjaman ✅
+-bug lihat detail petugas dan kepala ada jurusan dan status anggota ✅
 -bug tombol batal di hapus buku tidak berfungsi
 -bug pada cetak laporan anggota terpotong
 -bug pada cetak laporan buku kolom gambar kosong

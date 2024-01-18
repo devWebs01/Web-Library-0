@@ -74,7 +74,7 @@
                             <th>Jumlah Denda</th>
                             <th>Jumlah Hari</th>
                             <th>Tanggal Pembayaran</th>
-                            <th>#</th>
+                            {{-- <th>#</th> --}}
                         </tr>
                     </thead>
                     <tbody>
@@ -85,7 +85,7 @@
                                 <td>Rp. {{ $penalty->amount }}</td>
                                 <td>{{ $penalty->lates_day }} Hari</td>
                                 <td>{{ $penalty->payment_date }}</td>
-                                <td>@include('penalty.detail')</td>
+                                {{-- <td>@include('penalty.detail')</td> --}}
                             </tr>
                         @endforeach
                     </tbody>

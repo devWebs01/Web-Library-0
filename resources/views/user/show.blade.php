@@ -29,12 +29,12 @@
             <div class="row">
                 <div class="col-md">
                     <div class="input-group input-group-merge">
-                        <span
-                            class="input-group-text @error('telp') bg-danger text-white border-danger @enderror">+62</span>
+                        <span class="input-group-text @error('telp') bg-danger text-white border-danger @enderror"
+                            disabled>+62</span>
                         <div class="form-floating form-floating-outline">
                             <input type="number" class="form-control @error('telp') is-invalid @enderror"
                                 name="telp" value="{{ $user->telp }}" id="telp" placeholder="852XXXXXX"
-                                autofocus />
+                                disabled />
                             <label for="telp">Telp</label>
                         </div>
                     </div>
@@ -74,26 +74,29 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md">
-                    <div class="form-floating form-floating-outline mb-3">
-                        <input type="text" class="form-control" name="majors" value="{{ $user->majors ?? '-' }}"
-                            id="majors" disabled placeholder="Enter your majors" autofocus />
-                        <label for="majors">Jurusan</label>
+            @if ($user->role == 'Anggota')
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating form-floating-outline mb-3">
+                            <input type="text" class="form-control" name="majors"
+                                value="{{ $user->majors ?? '-' }}" id="majors" disabled
+                                placeholder="Enter your majors" autofocus />
+                            <label for="majors">Jurusan</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating form-floating-outline mb-3">
+                            <select class="form-select form-control" name="role" id="role" disabled>
+                                <option disabled>Pilih satu</option>
+                                <option value="Anggota" {{ $user->role == 'Anggota' ? '' : '' }}>Anggota
+                                </option>
+                                <option value="Petugas" {{ $user->role == 'Petugas' ? '' : '' }}>Petugas</option>
+                            </select>
+                            <label for="role">Status</label>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md">
-                    <div class="form-floating form-floating-outline mb-3">
-                        <select class="form-select form-control" name="role" id="role" disabled>
-                            <option disabled>Pilih satu</option>
-                            <option value="Anggota" {{ $user->role == 'Anggota' ? '' : '' }}>Anggota
-                            </option>
-                            <option value="Petugas" {{ $user->role == 'Petugas' ? '' : '' }}>Petugas</option>
-                        </select>
-                        <label for="role">Status</label>
-                    </div>
-                </div>
-            </div>
+            @endif
         </div>
     </div>
 </x-auth.layout>

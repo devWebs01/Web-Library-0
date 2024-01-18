@@ -13,7 +13,9 @@ class ReportController extends Controller
     public function users()
     {
         return view('report.users', [
-            'users' => User::whereRole('Anggota')->latest()->get(),
+            'users' => User::whereRole('Anggota')
+                ->whereNotNull('email_verified_at')
+                ->latest()->get(),
         ]);
     }
     public function books()

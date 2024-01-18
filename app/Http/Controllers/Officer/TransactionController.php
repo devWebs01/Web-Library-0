@@ -33,7 +33,9 @@ class TransactionController extends Controller
         $borrow_date = Carbon::now()->format('Y-m-d');
         $return_date = Carbon::now()->addDays(7)->format('Y-m-d');
 
-        $users = User::whereRole('Anggota')->select('id', 'name')->get();
+        $users = User::whereRole('Anggota')
+            ->whereNotNull('email_verified_at')
+            ->select('id', 'name')->get();
         $books = Book::get();
 
         return view('transaction.create', [
