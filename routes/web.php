@@ -93,7 +93,7 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
     Route::prefix('transactions')->group(function () {
         Route::get('/waiting', [TransactionController::class, 'waiting'])->name('transactions.waiting');
         Route::get('/create', [TransactionController::class, 'create'])->name('transactions.create');
-        Route::get('/completed', [TransactionController::class, 'completed'])->name('transactions.completed');
+        Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
 
 
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');

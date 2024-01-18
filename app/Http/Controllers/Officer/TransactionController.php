@@ -44,7 +44,7 @@ class TransactionController extends Controller
             'books' => $books,
         ]);
     }
-    public function completed()
+    public function index()
     {
         $completed = Transaction::where('status', 'Selesai')
             ->orWhere('status', 'Berjalan')
@@ -60,7 +60,7 @@ class TransactionController extends Controller
         $users = User::whereRole('Anggota')->select('id', 'name')->get();
         $books = Book::get();
 
-        return view('transaction.table.completed', [
+        return view('transaction.index', [
             'completed' => $completed,
             'borrow_date' => $borrow_date,
             'return_date' => $return_date,
@@ -96,7 +96,7 @@ class TransactionController extends Controller
 
             Transaction::create($validate);
 
-            return redirect()->route('transactions.completed')->with('success', 'Proses penambahan data telah berhasil dilakukan.');
+            return redirect()->route('transactions.index')->with('success', 'Proses penambahan data telah berhasil dilakukan.');
         }
     }
 
@@ -126,7 +126,7 @@ class TransactionController extends Controller
         $book->book_count++;
         $book->save();
 
-        return redirect()->route('transactions.completed')->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
+        return redirect()->route('transactions.index')->with('success', 'Proses peminjaman dan pengembalian buku telah selesai dilakukan.');
     }
 
     public function reject($id)

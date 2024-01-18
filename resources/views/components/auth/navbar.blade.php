@@ -84,8 +84,8 @@
             </ul>
         </li>
 
-        <li class="menu-item {{ request()->is('transactions/completed') ? 'active' : '' }}">
-            <a href="{{ route('transactions.completed') }}" class="menu-link">
+        <li class="menu-item {{ request()->is('transactions/') ? 'active' : '' }}">
+            <a href="{{ route('transactions.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons mdi mdi-sync"></i>
                 <div data-i18n="Beranda">Pengembalian</div>
                 <div class="badge bg-danger rounded-pill ms-auto {{ $late_days == null ? 'd-none' : '' }}">

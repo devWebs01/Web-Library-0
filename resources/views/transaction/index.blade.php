@@ -73,8 +73,6 @@
                     </tbody>
                 </table>
             </div>
-
-
         </div>
     </div>
 </x-auth.layout>
