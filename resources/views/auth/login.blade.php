@@ -25,7 +25,6 @@
                     <!-- /Logo -->
 
                     <div class="card-body mt-2">
-                        <a href="/" class="text-center">Home</a>
                         <h4 class="mb-2">Selamat datang kembali! 👋</h4>
                         <p class="mb-4">Silakan masuk ke akun perpustakaan Anda untuk mengakses koleksi buku yang
                             menarik.</p>
@@ -80,7 +79,8 @@
                             <span>Belum punya akun?</span>
                             <a href="/register">
                                 <span>Buat akun baru</span>
-                            </a>
+                            </a> <br>
+                            <a href="/" class="text-center">Ke Halaman Utama</a>
                         </p>
                     </div>
                 </div>

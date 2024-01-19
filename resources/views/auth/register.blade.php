@@ -207,6 +207,8 @@
                             <a href="/login">
                                 <span>Masuk Sekarang</span>
                             </a>
+                            <br>
+                            <a href="/" class="text-center">Ke Halaman Utama</a>
                         </p>
                     </div>
                 </div>
