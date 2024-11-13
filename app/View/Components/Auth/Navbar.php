@@ -32,7 +32,7 @@ class Navbar extends Component
                 ->where('status', '!=', 'Selesai')
                 ->where('status', '!=', 'Tolak')
                 ->where('status', '!=', 'Menunggu')
-                ->count()
+                ->count(),
         ]);
     }
 }

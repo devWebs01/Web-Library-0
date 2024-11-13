@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Book;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
@@ -14,7 +13,7 @@ class CategoryController extends Controller
     {
         return view('category.index', [
             'categories' => Category::latest()->get(),
-            'count' => Book::has('category')->count()
+            'count' => Book::has('category')->count(),
         ]);
     }
 
@@ -26,6 +25,7 @@ class CategoryController extends Controller
 
         return back()->with('success', 'Proses penambahan data telah berhasil dilakukan.');
     }
+
     public function update(CategoryRequest $request, $id)
     {
         $validate = $request->validated();
@@ -35,6 +35,7 @@ class CategoryController extends Controller
 
         return back()->with('success', 'Proses perubahan data telah berhasil dilakukan.');
     }
+
     public function destroy($id)
     {
         Category::destroy($id);

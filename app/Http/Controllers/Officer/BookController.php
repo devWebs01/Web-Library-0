@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
-use App\Models\Book;
 use App\Http\Requests\BookRequest;
+use App\Models\Book;
 use App\Models\Bookshelf;
 use App\Models\Category;
 use App\Models\Transaction;
@@ -20,7 +20,7 @@ class BookController extends Controller
             'bookshelves' => Bookshelf::select('id', 'name')->get(),
             'transactions' => Transaction::where('status', 'Berjalan')
                 ->orWhere('status', 'Terlambat')
-                ->count()
+                ->count(),
         ]);
     }
 

@@ -25,7 +25,7 @@ class APISeeder extends Seeder
             foreach ($recentBooks['books'] as $book) {
                 // Check if the 'id' key exists in the $book array
                 if (isset($book['id'])) {
-                    $bookDetails = Http::get('https://www.dbooks.org/api/book/' . $book['id'])->json();
+                    $bookDetails = Http::get('https://www.dbooks.org/api/book/'.$book['id'])->json();
 
                     // Check if the 'image' key exists in the $bookDetails array
                     if (isset($bookDetails['image'])) {
@@ -35,7 +35,7 @@ class APISeeder extends Seeder
 
                         $bookData = [
                             'title' => $bookDetails['title'],
-                            'image' => 'images/' . $imageName,
+                            'image' => 'images/'.$imageName,
                             'category_id' => $category->id,
                             'bookshelf_id' => $bookshelf->id,
                             'isbn' => $bookDetails['id'],
@@ -51,9 +51,9 @@ class APISeeder extends Seeder
                         // Save image to storage
                         $imageUrl = $bookDetails['image'];
                         $imageData = file_get_contents($imageUrl);
-                        Storage::put('public/images/' . $imageName, $imageData);
+                        Storage::put('public/images/'.$imageName, $imageData);
 
-                        $this->command->info('Book added: ' . $bookModel->title);
+                        $this->command->info('Book added: '.$bookModel->title);
                     } else {
                         $this->command->error('Invalid book details structure: missing image');
                     }

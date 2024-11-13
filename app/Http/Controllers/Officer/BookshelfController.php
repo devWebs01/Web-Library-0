@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\BookshelfRequest;
 use App\Models\Book;
 use App\Models\Bookshelf;
-use Illuminate\Http\Request;
 
 class BookshelfController extends Controller
 {
@@ -14,7 +13,7 @@ class BookshelfController extends Controller
     {
         return view('bookshelf.index', [
             'bookshelves' => Bookshelf::get(),
-            'books' => Book::count()
+            'books' => Book::count(),
         ]);
     }
 
@@ -35,6 +34,7 @@ class BookshelfController extends Controller
     public function destroy(Bookshelf $bookshelf)
     {
         $bookshelf->delete();
+
         return back()->with('success', 'Proses penghapusan data telah berhasil dilakukan.');
     }
 }

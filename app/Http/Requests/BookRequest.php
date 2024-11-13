@@ -33,7 +33,7 @@ class BookRequest extends FormRequest
             'year_published' => 'required|date_format:Y',
             'publisher' => 'required|max:255',
             'synopsis' => 'required',
-            'book_count' => 'required|integer|min:1'
+            'book_count' => 'required|integer|min:1',
         ];
     }
 }

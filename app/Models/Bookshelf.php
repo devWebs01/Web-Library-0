@@ -10,8 +10,9 @@ class Bookshelf extends Model
     use HasFactory;
 
     protected $table = 'bookshelves';
+
     protected $fillable = [
-        'name'
+        'name',
     ];
 
     /**

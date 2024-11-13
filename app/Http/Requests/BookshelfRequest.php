@@ -24,7 +24,7 @@ class BookshelfRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5|max:100|string'
+            'name' => 'required|min:5|max:100|string',
 
         ];
     }
