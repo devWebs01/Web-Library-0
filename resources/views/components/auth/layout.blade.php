@@ -197,7 +197,7 @@
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    , Made with ❤️ for SMK - PP NNegeri Jambi
+                                    , Made with ❤️ for SMK Negeri 6 Kota Jambi
                                 </div>
                             </div>
                         </div>
