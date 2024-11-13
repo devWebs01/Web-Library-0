@@ -27,6 +27,7 @@
                     <thead>
                         <tr>
                             <th>No.</th>
+                            <th>Kode</th>
                             <th>nama lengkap</th>
                             <th>status</th>
                             <th>Tanggal Pinjam</th>
@@ -38,6 +39,7 @@
                         @foreach ($waiting as $no => $item)
                             <tr>
                                 <td>{{ ++$no }}.</td>
+                                <td>{{ $item->code }}</td>
                                 <td>{{ $item->user->name ?? '-' }}</td>
                                 <td><span class="badge bg-success">{{ $item->status }}</span></td>
                                 <td>{{ $item->borrow_date ?? '-' }}</td>

@@ -6,9 +6,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-start">
+                <div class="text-center">
+                    <h5>Kode Peminjaman:</h5>
+                    <button type="button" disabled class="btn btn-body mb-4" style="outline-style: dashed;">
+                        <span class="fs-1 fs-md-4 text-dark" style="overflow-wrap: anywhere;">{{ $item->code }}</span>
+                    </button>
+                </div>
+                <hr>
                 <div>
                     <h5 class="mb-0">Informasi Pengguna</h5>
-                    <p>Pengguna terdaftar sejak {{ $item->user->created_at }}</p>
+                    <p>Pengguna terdaftar sejak {{ $item->user->created_at->format('d M Y') }}</p>
                     <div class="row">
                         <div class="col-md">
                             <ul class="list-unstyled">
@@ -45,8 +52,9 @@
                         </div>
                     </div>
                 </div>
+                <hr>
                 <div>
-                    <h5 class="mb-0">Informasi Buku</h5>
+                    <h5 class="mb-3">Informasi Buku</h5>
                     <div class="row">
                         <div class="col-md">
                             <ul class="list-unstyled" style="text-wrap: balance;">

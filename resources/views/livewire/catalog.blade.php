@@ -1,12 +1,55 @@
+<?php
+
+use function Livewire\Volt\{state, rules, computed};
+use App\Models\Category;
+use App\Models\Book;
+
+state(['search'])->url();
+state([
+    'categories' => fn() => Category::get(),
+    'category_id',
+]);
+
+$books = computed(function () {
+    // Dapatkan semua buku jika tidak ada search dan category
+    if (!$this->search && !$this->category_id) {
+        return Book::latest()->get();
+    }
+
+    // Dapatkan buku berdasarkan search
+    elseif ($this->search && !$this->category_id) {
+        return Book::where('title', 'like', '%' . $this->search . '%')
+            ->latest()
+            ->get();
+    }
+
+    // Dapatkan buku berdasarkan category
+    elseif (!$this->search && $this->category_id) {
+        return Book::where('category_id', $this->category_id)
+            ->latest()
+            ->get();
+    }
+
+    // Dapatkan buku berdasarkan search dan category
+    else {
+        return Book::where('title', 'like', '%' . $this->search . '%')
+            ->where('category_id', $this->category_id)
+            ->latest()
+            ->get();
+    }
+});
+
+?>
+
 <div>
     <div class="card-header d-flex flex-wrap justify-content-between gap-3">
         <div class="card-title mb-0 me-1">
             <h5 class="mb-1">Katalog Buku</h5>
-            <p class="mb-0">Total {{ $books->count() }} keseluruhan buku yang tersedia</p>
+            <p class="mb-0">Total {{ $this->books->count() }} keseluruhan buku yang tersedia</p>
         </div>
         <div class="d-flex justify-content-md-end align-items-center gap-3 flex-wrap">
             <div class="position-relative">
-                <select class="form-select" wire:model="category_id" name="" id="">
+                <select class="form-select" wire:model.live="category_id">
                     <option value="">Pilih Kategori</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ Str::limit($category->name, 35, '...') }}</option>
@@ -15,8 +58,8 @@
             </div>
 
             <label class="switch">
-                <input wire:model="search" type="text" class="form-control" name="" id=""
-                    aria-describedby="helpId" placeholder="Masukkan judul buku ...">
+                <input wire:model.live="search" type="text" class="form-control" aria-describedby="helpId"
+                    placeholder="Masukkan judul buku ...">
             </label>
         </div>
     </div>
@@ -26,7 +69,7 @@
             {{ $search }}
         </h5>
         <div class="row gy-4 mb-4">
-            @foreach ($books as $book)
+            @foreach ($this->books as $book)
                 <div class="col-sm-6 col-lg-4">
                     <div class="card shadow-none border p-2 h-100">
                         <div class="rounded-2 text-center mb-3">

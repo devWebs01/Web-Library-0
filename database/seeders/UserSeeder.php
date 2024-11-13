@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'email' => 'Anggota@testing.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'slug' => 'testing-anggota',
-                'telp' => '08978301234',
+                'telp' => '8978301234',
                 'role' => 'Anggota',
                 'majors' => 'IPA',
                 'birthdate' => '2001-07-22',
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
                 'email' => 'Petugas@testing.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'slug' => 'testing-petugas',
-                'telp' => '08978305678',
+                'telp' => '8978305678',
                 'role' => 'Petugas',
                 'majors' => null,
                 'birthdate' => '2001-07-22',
@@ -46,7 +46,7 @@ class UserSeeder extends Seeder
                 'email' => 'Kepala@testing.com',
                 'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
                 'slug' => 'testing-kepala',
-                'telp' => '08978309012',
+                'telp' => '8978309012',
                 'role' => 'Kepala',
                 'majors' => null,
                 'birthdate' => '2001-07-22',
