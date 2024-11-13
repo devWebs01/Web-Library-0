@@ -8,7 +8,6 @@ use App\Models\Book;
 use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class TransactionController extends Controller
@@ -19,11 +18,11 @@ class TransactionController extends Controller
             ->orderBy('updated_at', 'DESC')
             ->get();
 
-
         return view('booking.index', [
             'waiting' => $waiting,
         ]);
     }
+
     public function create()
     {
         $walking = Transaction::whereIn('status', ['Berjalan', 'Terlambat'])
@@ -46,6 +45,7 @@ class TransactionController extends Controller
             'books' => $books,
         ]);
     }
+
     public function index()
     {
         $completed = Transaction::where('status', 'Selesai')
@@ -94,7 +94,7 @@ class TransactionController extends Controller
 
             $user = User::findOrFail($request->user_id);
 
-            $validate['code'] = $user->slug . '-' . Str::random(10);
+            $validate['code'] = $user->slug.'-'.Str::random(10);
 
             Transaction::create($validate);
 
@@ -115,6 +115,7 @@ class TransactionController extends Controller
 
         return back()->with('success', 'Proses penambahan data peminjaman dan pengembalian buku berhasil telah berhasil dilakukan.');
     }
+
     public function finished($id)
     {
         $transaction = Transaction::findOrfail($id);
@@ -194,6 +195,7 @@ class TransactionController extends Controller
             compact('transaction', 'users', 'books')
         );
     }
+
     public function destroy($id)
     {
         $transaction = Transaction::findOrFail($id);

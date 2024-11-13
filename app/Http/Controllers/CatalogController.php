@@ -7,16 +7,14 @@ use App\Models\Book;
 use App\Models\Transaction;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
 
 class CatalogController extends Controller
 {
     public function index()
     {
         return view('catalog.index', [
-            'books' => Book::latest()->get()
+            'books' => Book::latest()->get(),
         ]);
     }
 
@@ -28,7 +26,7 @@ class CatalogController extends Controller
             'book' => Book::FindOrFail($id),
             'borrow_date' => Carbon::now()->format('Y-m-d'),
             'return_date' => Carbon::now()->addDays(7)->format('Y-m-d'),
-            'books' => $books
+            'books' => $books,
         ]);
     }
 
@@ -45,7 +43,6 @@ class CatalogController extends Controller
                     ->Where('status', 'Terlambat');
             })
             ->count();
-
 
         if ($transaction >= 3) {
             return back()->with('warning', 'Peminjaman melebihi batas yang telah ditentukan 😀');
@@ -101,7 +98,7 @@ class CatalogController extends Controller
             'walking' => $walking,
             'penalty' => $penalty,
             'finished' => $finished,
-            'rejects' => $rejects
+            'rejects' => $rejects,
         ]);
     }
 }

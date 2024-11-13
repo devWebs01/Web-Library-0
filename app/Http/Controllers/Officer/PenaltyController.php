@@ -8,7 +8,6 @@ use App\Models\Book;
 use App\Models\Penalty;
 use App\Models\Transaction;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class PenaltyController extends Controller
 {
@@ -28,9 +27,10 @@ class PenaltyController extends Controller
         return view('penalty.index', [
             'penalties' => $penalties,
             'all_amount' => $total,
-            'dont_payment' => $dont_payment
+            'dont_payment' => $dont_payment,
         ]);
     }
+
     public function store(PenaltyRequest $request)
     {
         $validate = $request->validated();

@@ -16,13 +16,11 @@ class Penalty extends Model
         'lates_day',
         'payment_date',
         'borrow_date',
-        'return_date'
+        'return_date',
     ];
 
     /**
      * Get the transaction that owns the Penalty
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function transaction(): BelongsTo
     {

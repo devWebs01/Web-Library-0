@@ -15,8 +15,8 @@ class BookshelfFactory extends Factory
     {
         return [
             'name' => $this->faker->numerify()
-                . ' ' .
-                $this->faker->word()
+                .' '.
+                $this->faker->word(),
         ];
     }
 }

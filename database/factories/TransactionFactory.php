@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use Carbon\Carbon;
 use App\Models\Book;
-use Illuminate\Support\Str;
-use Illuminate\Foundation\Auth\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Str;
 
 class TransactionFactory extends Factory
 {
@@ -19,7 +19,7 @@ class TransactionFactory extends Factory
     {
         $now = Carbon::now()->subMonths(1);
 
-        $user = User::whereNotNull('email_verified_at',)
+        $user = User::whereNotNull('email_verified_at')
             ->where('role', 'anggota')
             ->inRandomOrder()
             ->first('id');
