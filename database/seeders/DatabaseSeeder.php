@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Book;
 use App\Models\Bookshelf;
 use App\Models\Category;
 use App\Models\Transaction;
@@ -19,7 +18,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             APISeeder::class,
-            UserSeeder::class
+            UserSeeder::class,
         ]);
 
         Transaction::factory(10)->create();

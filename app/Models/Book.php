@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
+
     protected $with = 'category';
+
     protected $fillable = [
         'title',
         'image',
@@ -19,12 +21,14 @@ class Book extends Model
         'year_published',
         'publisher',
         'synopsis',
-        'book_count'
+        'book_count',
     ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+
     public function bookshelf()
     {
         return $this->belongsTo(Bookshelf::class);

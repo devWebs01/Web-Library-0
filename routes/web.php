@@ -1,16 +1,16 @@
 <?php
 
 use App\Http\Controllers\Auth\ProfileController;
+use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Officer\BookController;
+use App\Http\Controllers\Officer\BookshelfController;
 use App\Http\Controllers\Officer\CategoryController;
 use App\Http\Controllers\Officer\ConfirmationAccountController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Officer\UserController;
 use App\Http\Controllers\Officer\PenaltyController;
 use App\Http\Controllers\Officer\ReportController;
 use App\Http\Controllers\Officer\TransactionController;
-use App\Http\Controllers\CatalogController;
-use App\Http\Controllers\Officer\BookshelfController;
+use App\Http\Controllers\Officer\UserController;
 use App\Models\Book;
 use App\Models\Transaction;
 use App\Models\User;
@@ -40,8 +40,6 @@ Auth::routes();
 
 Route::get('/catalog-books', [CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/catalog-books/{id}/show', [CatalogController::class, 'show'])->name('catalog.show');
-
-
 
 Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
 
@@ -94,7 +92,6 @@ Route::middleware(['auth', 'role:Petugas,Kepala'])->group(function () {
         Route::get('/waiting', [TransactionController::class, 'waiting'])->name('transactions.waiting');
         Route::get('/create', [TransactionController::class, 'create'])->name('transactions.create');
         Route::get('/', [TransactionController::class, 'index'])->name('transactions.index');
-
 
         Route::post('/', [TransactionController::class, 'store'])->name('transactions.store');
         Route::get('/{id}/show', [TransactionController::class, 'show'])->name('transactions.show');

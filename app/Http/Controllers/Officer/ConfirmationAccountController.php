@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Officer;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use Illuminate\Http\Request;
 
 class ConfirmationAccountController extends Controller
 {
@@ -21,9 +20,9 @@ class ConfirmationAccountController extends Controller
     {
         $user = User::findOrfail($id);
         $user->update([
-            'email_verified_at' => now()
+            'email_verified_at' => now(),
         ]);
 
-        return back()->with('success', 'Pengguna ' . $user->name . ' berhasil dikonfirmasi menjadi anggota perpustakaan.');
+        return back()->with('success', 'Pengguna '.$user->name.' berhasil dikonfirmasi menjadi anggota perpustakaan.');
     }
 }

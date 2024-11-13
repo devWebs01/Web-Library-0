@@ -17,7 +17,7 @@ class BookFactory extends Factory
     public function definition()
     {
         $imagePath = 'assets/img/Example-Cover.png';
-        $storagePath = 'images/' . $imagePath;
+        $storagePath = 'images/'.$imagePath;
         Storage::disk('public')->put($storagePath, file_get_contents(public_path($imagePath)));
 
         return [
